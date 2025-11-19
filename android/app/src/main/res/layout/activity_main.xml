@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chinese Flashcard"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#2196F3"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="学习中文"
+            android:textSize="20sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- Info Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#FAFAFA">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvHskLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HSK Level: 1"
+                    android:textSize="16sp"
+                    android:textColor="#333333"/>
+
+                <TextView
+                    android:id="@+id/tvPatchInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Current Patch: 1/15"
+                    android:textSize="16sp"
+                    android:textColor="#333333"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:id="@+id/tvWordsInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Words: 150 | Revision: 0"
+                    android:textSize="16sp"
+                    android:textColor="#333333"
+                    android:layout_marginTop="4dp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Learning Buttons -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Learning"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#666666"
+            android:layout_gravity="start"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="📚 Start - Learn Current Patch"
+            android:textSize="16sp"
+            android:backgroundTint="#4CAF50"
+            android:layout_marginBottom="12dp"
+            android:textColor="#FFFFFF"/>
+
+        <Button
+            android:id="@+id/btnStartRevision"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="🔄 Start with Revision"
+            android:textSize="16sp"
+            android:backgroundTint="#FF9800"
+            android:layout_marginBottom="24dp"
+            android:textColor="#FFFFFF"/>
+
+        <!-- Navigation Buttons -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Navigation"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#666666"
+            android:layout_gravity="start"
+            android:layout_marginBottom="12dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btnPrevious"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="⬅️ Previous"
+                android:textSize="16sp"
+                android:backgroundTint="#2196F3"
+                android:layout_marginEnd="8dp"
+                android:textColor="#FFFFFF"/>
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Next ➡️"
+                android:textSize="16sp"
+                android:backgroundTint="#2196F3"
+                android:layout_marginStart="8dp"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <!-- Test Buttons -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Testing"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#666666"
+            android:layout_gravity="start"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btnTest"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="✏️ Test Previous Patches"
+            android:textSize="16sp"
+            android:backgroundTint="#9C27B0"
+            android:layout_marginBottom="12dp"
+            android:textColor="#FFFFFF"/>
+
+        <Button
+            android:id="@+id/btnTestRevision"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="✅ Test Revision"
+            android:textSize="16sp"
+            android:backgroundTint="#E91E63"
+            android:layout_marginBottom="24dp"
+            android:textColor="#FFFFFF"/>
+
+        <!-- Settings Buttons -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#666666"
+            android:layout_gravity="start"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btnConfig"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="⚙️ Configuration"
+            android:textSize="16sp"
+            android:backgroundTint="#607D8B"
+            android:layout_marginBottom="12dp"
+            android:textColor="#FFFFFF"/>
+
+        <Button
+            android:id="@+id/btnExit"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="🚪 Exit"
+            android:textSize="16sp"
+            android:backgroundTint="#757575"
+            android:layout_marginBottom="24dp"
+            android:textColor="#FFFFFF"/>
+
+    </LinearLayout>
+</ScrollView>
