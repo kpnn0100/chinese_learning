@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import '../models/chinese_word.dart';
 import '../services/data_service.dart';
+import '../localization/app_strings.dart';
 
 class FlashcardScreen extends StatefulWidget {
   final List<ChineseWord> words;
@@ -58,7 +59,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
   void _checkAnswer() async {
     if (_answerController.text.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please enter an answer')),
+        const SnackBar(content: Text(AppStrings.pleaseEnterAnswer)),
       );
       return;
     }
@@ -138,14 +139,14 @@ class _FlashcardScreenState extends State<FlashcardScreen>
           children: [
             const Icon(Icons.celebration, color: Colors.amber, size: 32),
             const SizedBox(width: 12),
-            const Text('Complete!'),
+            const Text(AppStrings.complete),
           ],
         ).animate().scale(duration: 500.ms),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Score: $_correctCount/${widget.words.length}',
+              '${AppStrings.score}: $_correctCount/${widget.words.length}',
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             Text(
@@ -171,7 +172,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.isTest ? 'Test' : 'Learn'),
+        title: Text(widget.isTest ? AppStrings.test : AppStrings.learn),
         elevation: 0,
       ),
       body: Container(
@@ -220,7 +221,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Question ${_currentIndex + 1}/${widget.words.length}',
+                '${AppStrings.question} ${_currentIndex + 1}/${widget.words.length}',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -228,7 +229,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                 ),
               ),
               Text(
-                'Score: $_correctCount',
+                '${AppStrings.score}: $_correctCount',
                 style: TextStyle(
                   fontSize: 16,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
@@ -279,7 +280,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'Chinese:',
+                  AppStrings.chinese,
                   style: TextStyle(
                     fontSize: 20,
                     color: Theme.of(context).colorScheme.onSurfaceVariant,
@@ -291,7 +292,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                 const SizedBox(height: 20),
                 Text(
                   _currentWord.chinese,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 72,
                     fontWeight: FontWeight.bold,
                     color: Colors.blue,
@@ -310,7 +311,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Text(
-                    'Type the pinyin (use 1234 for tones)',
+                    AppStrings.typePinyinHint,
                     style: TextStyle(
                       fontSize: 14,
                       color: Theme.of(context).colorScheme.onSurfaceVariant,
@@ -413,7 +414,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                   if (_currentWord.hanViet.isNotEmpty) ...[
                     const SizedBox(height: 12),
                     Text(
-                      'Hán Việt: ${_currentWord.hanViet}',
+                      '${AppStrings.hanViet} ${_currentWord.hanViet}',
                       style: const TextStyle(
                         fontSize: 20,
                         color: Colors.purple,
@@ -467,7 +468,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
             TextField(
               controller: _answerController,
               decoration: InputDecoration(
-                hintText: 'Enter pinyin...',
+                hintText: AppStrings.typePinyinHint,
                 hintStyle: TextStyle(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
@@ -521,7 +522,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                 elevation: 0,
               ),
               child: const Text(
-                'Submit',
+                AppStrings.submit,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             )
@@ -543,7 +544,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                 elevation: 0,
               ),
               child: Text(
-                _currentIndex < widget.words.length - 1 ? 'Next ➡️' : 'Finish',
+                _currentIndex < widget.words.length - 1 ? AppStrings.next : AppStrings.finish,
                 style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             )

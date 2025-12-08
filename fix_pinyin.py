@@ -54,7 +54,7 @@ def fix_csv_pinyin(csv_path, fixes):
 def main():
     resource_dir = Path(__file__).parent / "resource"
     
-    for hsk_file in ['hsk1.csv', 'hsk2.csv']:
+    for hsk_file in ['hsk1.csv', 'hsk2.csv', 'hsk3.csv', 'hsk4.csv', 'hsk5.csv', 'hsk6.csv']:
         csv_path = resource_dir / hsk_file
         if csv_path.exists():
             fix_csv_pinyin(csv_path, FIXES)
