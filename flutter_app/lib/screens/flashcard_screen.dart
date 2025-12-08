@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flip_card/flip_card.dart';
 import '../models/chinese_word.dart';
+import '../services/data_service.dart';
 
 class FlashcardScreen extends StatefulWidget {
   final List<ChineseWord> words;
@@ -55,7 +55,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
 
   ChineseWord get _currentWord => widget.words[_currentIndex];
 
-  void _checkAnswer() {
+  void _checkAnswer() async {
     if (_answerController.text.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Please enter an answer')),
@@ -66,8 +66,20 @@ class _FlashcardScreenState extends State<FlashcardScreen>
     final userAnswer = _answerController.text.trim().toLowerCase();
     final correctAnswer = _currentWord.pinyin.toLowerCase();
     
+    final isCorrect = _checkPinyin(userAnswer, correctAnswer);
+    
+    // Add to revision if wrong and in test mode
+    if (!isCorrect && widget.isTest) {
+      await DataService.addToRevision(_currentWord.chinese);
+    }
+    
+    // Remove from revision if correct and in revision test mode
+    if (isCorrect && widget.isRevision) {
+      await DataService.removeFromRevision(_currentWord.chinese);
+    }
+    
     setState(() {
-      _isCorrect = _checkPinyin(userAnswer, correctAnswer);
+      _isCorrect = isCorrect;
       _showAnswer = true;
       if (_isCorrect!) _correctCount++;
     });
@@ -161,22 +173,9 @@ class _FlashcardScreenState extends State<FlashcardScreen>
       appBar: AppBar(
         title: Text(widget.isTest ? 'Test' : 'Learn'),
         elevation: 0,
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.blue.shade400, Colors.purple.shade400],
-            ),
-          ),
-        ),
       ),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Colors.blue.shade50, Colors.white],
-          ),
-        ),
+        color: Theme.of(context).colorScheme.surface,
         child: SafeArea(
           child: Column(
             children: [
@@ -209,15 +208,11 @@ class _FlashcardScreenState extends State<FlashcardScreen>
       margin: const EdgeInsets.all(20),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
+        border: Border.all(
+          color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
+        ),
       ),
       child: Column(
         children: [
@@ -226,17 +221,17 @@ class _FlashcardScreenState extends State<FlashcardScreen>
             children: [
               Text(
                 'Question ${_currentIndex + 1}/${widget.words.length}',
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
               Text(
                 'Score: $_correctCount',
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.grey.shade600,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
               ),
             ],
@@ -247,13 +242,13 @@ class _FlashcardScreenState extends State<FlashcardScreen>
             child: LinearProgressIndicator(
               value: progress,
               minHeight: 8,
-              backgroundColor: Colors.grey.shade200,
+              backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
               valueColor: AlwaysStoppedAnimation<Color>(
                 progress > 0.7
                     ? Colors.green
                     : progress > 0.4
                         ? Colors.orange
-                        : Colors.blue,
+                        : Theme.of(context).colorScheme.primary,
               ),
             ),
           ).animate().scaleX(duration: 800.ms, curve: Curves.easeOut),
@@ -267,19 +262,18 @@ class _FlashcardScreenState extends State<FlashcardScreen>
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Card(
-          elevation: 15,
+          elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
+            side: BorderSide(
+              color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
+            ),
           ),
           child: Container(
             padding: const EdgeInsets.all(40),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Colors.white, Colors.blue.shade50],
-              ),
+              color: Theme.of(context).colorScheme.surfaceContainerHighest,
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -288,7 +282,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                   'Chinese:',
                   style: TextStyle(
                     fontSize: 20,
-                    color: Colors.grey.shade600,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
                 )
                     .animate()
@@ -297,7 +291,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                 const SizedBox(height: 20),
                 Text(
                   _currentWord.chinese,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 72,
                     fontWeight: FontWeight.bold,
                     color: Colors.blue,
@@ -310,19 +304,16 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                     .shimmer(duration: 2000.ms, delay: 800.ms),
                 const SizedBox(height: 30),
                 Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 12,
-                  ),
+                  padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: Colors.purple.shade50,
+                    color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.3),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Text(
                     'Type the pinyin (use 1234 for tones)',
                     style: TextStyle(
                       fontSize: 14,
-                      color: Colors.grey.shade600,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
                       fontStyle: FontStyle.italic,
                     ),
                   ),
@@ -342,21 +333,21 @@ class _FlashcardScreenState extends State<FlashcardScreen>
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Card(
-          elevation: 15,
+          elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
+            side: BorderSide(
+              color: _isCorrect == true ? Colors.green : Colors.red,
+              width: 2,
+            ),
           ),
           child: Container(
             padding: const EdgeInsets.all(30),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: _isCorrect == true
-                    ? [Colors.green.shade50, Colors.green.shade100]
-                    : [Colors.red.shade50, Colors.red.shade100],
-              ),
+              color: _isCorrect == true
+                  ? Colors.green.withOpacity(0.1)
+                  : Colors.red.withOpacity(0.1),
             ),
             child: SingleChildScrollView(
               child: Column(
@@ -462,14 +453,12 @@ class _FlashcardScreenState extends State<FlashcardScreen>
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, -4),
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
+        border: Border(
+          top: BorderSide(
+            color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
           ),
-        ],
+        ),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -479,18 +468,39 @@ class _FlashcardScreenState extends State<FlashcardScreen>
               controller: _answerController,
               decoration: InputDecoration(
                 hintText: 'Enter pinyin...',
+                hintStyle: TextStyle(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
                 filled: true,
-                fillColor: Colors.grey.shade100,
+                fillColor: Theme.of(context).colorScheme.surfaceContainer,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide.none,
+                  borderSide: BorderSide(
+                    color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: Theme.of(context).colorScheme.primary,
+                    width: 2,
+                  ),
                 ),
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 20,
                   vertical: 18,
                 ),
               ),
-              style: const TextStyle(fontSize: 18),
+              style: TextStyle(
+                fontSize: 18,
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
               textAlign: TextAlign.center,
               onSubmitted: (_) => _checkAnswer(),
             )
@@ -508,7 +518,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
-                elevation: 5,
+                elevation: 0,
               ),
               child: const Text(
                 'Submit',
@@ -523,14 +533,14 @@ class _FlashcardScreenState extends State<FlashcardScreen>
             ElevatedButton(
               onPressed: _nextWord,
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
-                foregroundColor: Colors.white,
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
                 padding: const EdgeInsets.symmetric(vertical: 18),
                 minimumSize: const Size.fromHeight(50),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
-                elevation: 5,
+                elevation: 0,
               ),
               child: Text(
                 _currentIndex < widget.words.length - 1 ? 'Next ➡️' : 'Finish',

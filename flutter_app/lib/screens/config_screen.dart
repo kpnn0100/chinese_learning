@@ -26,22 +26,9 @@ class _ConfigScreenState extends State<ConfigScreen> {
       appBar: AppBar(
         title: const Text('Configuration'),
         elevation: 0,
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.blueGrey.shade400, Colors.blueGrey.shade600],
-            ),
-          ),
-        ),
       ),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Colors.blueGrey.shade50, Colors.white],
-          ),
-        ),
+        color: Theme.of(context).colorScheme.surface,
         child: ListView(
           padding: const EdgeInsets.all(20),
           children: [
@@ -61,9 +48,11 @@ class _ConfigScreenState extends State<ConfigScreen> {
                         setState(() => _hskLevel = level);
                       }
                     },
-                    selectedColor: Colors.blue,
+                    selectedColor: Theme.of(context).colorScheme.primary,
                     labelStyle: TextStyle(
-                      color: _hskLevel == level ? Colors.white : Colors.black,
+                      color: _hskLevel == level 
+                          ? Theme.of(context).colorScheme.onPrimary
+                          : Theme.of(context).colorScheme.onSurface,
                       fontWeight: FontWeight.bold,
                     ),
                   );
@@ -92,10 +81,10 @@ class _ConfigScreenState extends State<ConfigScreen> {
                   ),
                   Text(
                     '$_wordsPerPatch words',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      color: Colors.blue,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                 ],
@@ -145,7 +134,7 @@ class _ConfigScreenState extends State<ConfigScreen> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
-                elevation: 5,
+                elevation: 0,
               ),
             )
                 .animate()
@@ -165,27 +154,28 @@ class _ConfigScreenState extends State<ConfigScreen> {
     required int index,
   }) {
     return Card(
-      elevation: 8,
+      elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
+        side: BorderSide(
+          color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
+        ),
       ),
       child: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          gradient: LinearGradient(
-            colors: [Colors.white, Colors.blue.shade50],
-          ),
+          color: Theme.of(context).colorScheme.surfaceContainerHighest,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               title,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.blue,
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
             const SizedBox(height: 8),
@@ -193,7 +183,7 @@ class _ConfigScreenState extends State<ConfigScreen> {
               subtitle,
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.grey.shade600,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ),
             const SizedBox(height: 20),

@@ -10,6 +10,7 @@ class DataService {
   static int _currentIndex = 0;
   static int _hskLevel = 1;
   static int _wordsPerPatch = 10;
+  static Set<String> _revisionWords = {};
 
   static Future<void> loadConfig() async {
     final prefs = await SharedPreferences.getInstance();
@@ -21,6 +22,11 @@ class DataService {
     if (indicesJson != null) {
       _shuffledIndices = List<int>.from(json.decode(indicesJson));
     }
+    
+    final revisionJson = prefs.getString('revision_words');
+    if (revisionJson != null) {
+      _revisionWords = Set<String>.from(json.decode(revisionJson));
+    }
   }
 
   static Future<void> saveConfig() async {
@@ -29,6 +35,7 @@ class DataService {
     await prefs.setInt('words_per_patch', _wordsPerPatch);
     await prefs.setInt('current_index', _currentIndex);
     await prefs.setString('shuffled_indices', json.encode(_shuffledIndices));
+    await prefs.setString('revision_words', json.encode(_revisionWords.toList()));
   }
 
   static Future<void> loadWords() async {
@@ -36,13 +43,28 @@ class DataService {
       'assets/resource/hsk$_hskLevel.csv',
     );
     
+    print('DEBUG: CSV String length: ${csvString.length}');
+    print('DEBUG: CSV lines count: ${csvString.split('\n').length}');
+    
     List<List<dynamic>> csvTable = const CsvToListConverter().convert(
       csvString,
       eol: '\n',
     );
     
+    print('DEBUG: CSV table rows (including header): ${csvTable.length}');
+    
     // Skip header
-    _words = csvTable.skip(1).map((row) => ChineseWord.fromCsv(row)).toList();
+    _words = csvTable.skip(1).map((row) {
+      try {
+        return ChineseWord.fromCsv(row);
+      } catch (e) {
+        print('ERROR parsing row: $row');
+        print('ERROR details: $e');
+        rethrow;
+      }
+    }).toList();
+    
+    print('DEBUG: Total words loaded: ${_words.length}');
     
     if (_shuffledIndices.isEmpty || _shuffledIndices.length != _words.length) {
       _shuffledIndices = List<int>.generate(_words.length, (i) => i);
@@ -79,6 +101,27 @@ class DataService {
     }
   }
 
+  static List<ChineseWord> getPreviousPatch([int patchesBack = 1]) {
+    if (_currentIndex < patchesBack) return [];
+    
+    List<ChineseWord> allWords = [];
+    for (int i = 1; i <= patchesBack; i++) {
+      final patchIndex = _currentIndex - i;
+      final start = patchIndex * _wordsPerPatch;
+      final end = (start + _wordsPerPatch).clamp(0, _shuffledIndices.length);
+      
+      if (start < _shuffledIndices.length) {
+        final patchWords = _shuffledIndices
+            .sublist(start, end)
+            .map((i) => _words[i])
+            .toList();
+        allWords.addAll(patchWords);
+      }
+    }
+    
+    return allWords;
+  }
+
   static int get currentPatch => _currentIndex + 1;
   static int get totalPatches => (_words.length / _wordsPerPatch).ceil();
   static int get hskLevel => _hskLevel;
@@ -102,6 +145,28 @@ class DataService {
     _shuffledIndices = List<int>.generate(_words.length, (i) => i);
     _shuffledIndices.shuffle();
     _currentIndex = 0;
+    await saveConfig();
+  }
+
+  // Revision system methods
+  static Future<void> addToRevision(String chinese) async {
+    _revisionWords.add(chinese);
+    await saveConfig();
+  }
+
+  static Future<void> removeFromRevision(String chinese) async {
+    _revisionWords.remove(chinese);
+    await saveConfig();
+  }
+
+  static List<ChineseWord> getRevisionWords() {
+    return _words.where((word) => _revisionWords.contains(word.chinese)).toList();
+  }
+
+  static int get revisionCount => _revisionWords.length;
+
+  static Future<void> clearRevision() async {
+    _revisionWords.clear();
     await saveConfig();
   }
 }

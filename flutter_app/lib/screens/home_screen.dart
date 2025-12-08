@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import '../services/data_service.dart';
+import '../localization/app_strings.dart';
 import 'flashcard_screen.dart';
 import 'config_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final VoidCallback onThemeToggle;
+  
+  const HomeScreen({super.key, required this.onThemeToggle});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -34,251 +37,386 @@ class _HomeScreenState extends State<HomeScreen> {
       );
     }
 
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.blue.shade50,
-              Colors.purple.shade50,
-            ],
-          ),
-        ),
-        child: SafeArea(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              children: [
-                // Title
-                Text(
-                  'Chinese Flashcard',
-                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue.shade700,
-                      ),
-                )
-                    .animate()
-                    .fadeIn(duration: 600.ms)
-                    .slideY(begin: -0.3, end: 0),
-                const SizedBox(height: 8),
-                Text(
-                  '学习中文',
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        color: Colors.grey.shade600,
-                      ),
-                )
-                    .animate()
-                    .fadeIn(duration: 600.ms, delay: 200.ms)
-                    .slideY(begin: -0.3, end: 0),
-                const SizedBox(height: 30),
-
-                // Info Card
-                _buildInfoCard().animate().fadeIn(duration: 600.ms, delay: 400.ms).scale(),
-
-                const SizedBox(height: 30),
-
-                // Learning Section
-                _buildSectionTitle('Learning', Icons.school)
-                    .animate()
-                    .fadeIn(duration: 500.ms, delay: 600.ms)
-                    .slideX(begin: -0.2, end: 0),
-                const SizedBox(height: 15),
-                _buildMenuButton(
-                  '📚 Start - Learn Current Patch',
-                  Colors.green,
-                  () => _startLearning(false),
-                  0,
-                ),
-                const SizedBox(height: 12),
-                _buildMenuButton(
-                  '🔄 Start with Revision',
-                  Colors.orange,
-                  () => _startLearning(true),
-                  1,
-                ),
-
-                const SizedBox(height: 30),
-
-                // Navigation Section
-                _buildSectionTitle('Navigation', Icons.navigation)
-                    .animate()
-                    .fadeIn(duration: 500.ms, delay: 800.ms)
-                    .slideX(begin: -0.2, end: 0),
-                const SizedBox(height: 15),
-                Row(
-                  children: [
-                    Expanded(
-                      child: _buildMenuButton(
-                        '⬅️ Previous',
-                        Colors.blue,
-                        _previousPatch,
-                        2,
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: _buildMenuButton(
-                        'Next ➡️',
-                        Colors.blue,
-                        _nextPatch,
-                        3,
-                      ),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 30),
-
-                // Testing Section
-                _buildSectionTitle('Testing', Icons.quiz)
-                    .animate()
-                    .fadeIn(duration: 500.ms, delay: 1000.ms)
-                    .slideX(begin: -0.2, end: 0),
-                const SizedBox(height: 15),
-                _buildMenuButton(
-                  '✏️ Test Previous Patches',
-                  Colors.purple,
-                  () {},
-                  4,
-                ),
-                const SizedBox(height: 12),
-                _buildMenuButton(
-                  '✅ Test Revision',
-                  Colors.pink,
-                  () {},
-                  5,
-                ),
-
-                const SizedBox(height: 30),
-
-                // Settings Section
-                _buildSectionTitle('Settings', Icons.settings)
-                    .animate()
-                    .fadeIn(duration: 500.ms, delay: 1200.ms)
-                    .slideX(begin: -0.2, end: 0),
-                const SizedBox(height: 15),
-                _buildMenuButton(
-                  '⚙️ Configuration',
-                  Colors.blueGrey,
-                  _openConfig,
-                  6,
-                ),
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            // App Bar
+            SliverAppBar(
+              floating: true,
+              snap: true,
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Chinese Flashcard',
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                  )
+                      .animate()
+                      .fadeIn(duration: 600.ms)
+                      .slideY(begin: -0.2, end: 0),
+                  Text(
+                    '学习中文',
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                  )
+                      .animate()
+                      .fadeIn(duration: 600.ms, delay: 200.ms),
+                ],
+              ),
+              actions: [
+                IconButton(
+                  icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
+                  onPressed: widget.onThemeToggle,
+                  tooltip: 'Toggle theme',
+                ).animate().scale(duration: 400.ms, delay: 400.ms),
               ],
             ),
-          ),
-        ),
-      ),
-    );
-  }
 
-  Widget _buildInfoCard() {
-    return Card(
-      elevation: 8,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          gradient: LinearGradient(
-            colors: [Colors.white, Colors.blue.shade50],
-          ),
-        ),
-        child: Column(
-          children: [
-            _buildInfoRow('HSK Level', '${DataService.hskLevel}'),
-            const Divider(),
-            _buildInfoRow('Words per patch', '${DataService.wordsPerPatch}'),
-            const Divider(),
-            _buildInfoRow(
-              'Current Patch',
-              '${DataService.currentPatch}/${DataService.totalPatches}',
+            // Content
+            SliverPadding(
+              padding: const EdgeInsets.all(20),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate([
+                  // Stats Card
+                  _buildStatsCard(context)
+                      .animate()
+                      .fadeIn(duration: 500.ms, delay: 300.ms)
+                      .slideY(begin: 0.1, end: 0),
+                  
+                  const SizedBox(height: 32),
+
+                  // Primary Actions
+                  _buildActionCard(
+                    context,
+                    icon: Icons.school,
+                    title: AppStrings.startLearning,
+                    subtitle: AppStrings.startLearningSubtitle,
+                    color: Theme.of(context).colorScheme.primary,
+                    onTap: () => _startLearning(false),
+                  )
+                      .animate()
+                      .fadeIn(duration: 500.ms, delay: 400.ms)
+                      .slideX(begin: -0.1, end: 0),
+
+                  const SizedBox(height: 12),
+
+                  _buildActionCard(
+                    context,
+                    icon: Icons.quiz,
+                    title: AppStrings.practiceOldLesson,
+                    subtitle: AppStrings.practiceOldLessonSubtitle,
+                    color: Colors.blue,
+                    onTap: _practiceOldLesson,
+                  )
+                      .animate()
+                      .fadeIn(duration: 500.ms, delay: 450.ms)
+                      .slideX(begin: -0.1, end: 0),
+
+                  const SizedBox(height: 12),
+
+                  _buildActionCard(
+                    context,
+                    icon: Icons.history_edu,
+                    title: AppStrings.startRevision,
+                    subtitle: 'Learn from mistakes (${DataService.revisionCount} words)',
+                    color: Colors.orange,
+                    onTap: () => _startRevisionLearn(),
+                  )
+                      .animate()
+                      .fadeIn(duration: 500.ms, delay: 500.ms)
+                      .slideX(begin: -0.1, end: 0),
+
+                  const SizedBox(height: 12),
+
+                  _buildActionCard(
+                    context,
+                    icon: Icons.task_alt,
+                    title: AppStrings.testRevision,
+                    subtitle: 'Clear words you\'ve mastered',
+                    color: Colors.green,
+                    onTap: () => _startRevisionTest(),
+                  )
+                      .animate()
+                      .fadeIn(duration: 500.ms, delay: 550.ms)
+                      .slideX(begin: -0.1, end: 0),
+
+                  const SizedBox(height: 32),
+
+                  // Navigation
+                  Text(
+                    'Navigation',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
+                  )
+                      .animate()
+                      .fadeIn(duration: 400.ms, delay: 600.ms),
+                  
+                  const SizedBox(height: 12),
+
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _buildIconButton(
+                          context,
+                          icon: Icons.arrow_back,
+                          label: AppStrings.previousPatch,
+                          onTap: _previousPatch,
+                        )
+                            .animate()
+                            .fadeIn(duration: 400.ms, delay: 700.ms)
+                            .scale(),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: _buildIconButton(
+                          context,
+                          icon: Icons.arrow_forward,
+                          label: AppStrings.nextPatch,
+                          onTap: _nextPatch,
+                        )
+                            .animate()
+                            .fadeIn(duration: 400.ms, delay: 750.ms)
+                            .scale(),
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 32),
+
+                  // Settings
+                  Text(
+                    'More',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
+                  )
+                      .animate()
+                      .fadeIn(duration: 400.ms, delay: 800.ms),
+                  
+                  const SizedBox(height: 12),
+
+                  _buildSimpleButton(
+                    context,
+                    icon: Icons.settings_outlined,
+                    label: AppStrings.settings,
+                    onTap: _openConfig,
+                  )
+                      .animate()
+                      .fadeIn(duration: 400.ms, delay: 850.ms)
+                      .slideX(begin: 0.1, end: 0),
+
+                  const SizedBox(height: 40),
+                ]),
+              ),
             ),
-            const Divider(),
-            _buildInfoRow('Total Words', '${DataService.totalWords}'),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildInfoRow(String label, String value) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey.shade700,
+  Widget _buildStatsCard(BuildContext context) {
+    return Card(
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(
+          color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                _buildStatItem(
+                  context,
+                  label: AppStrings.hskLevel,
+                  value: '${DataService.hskLevel}',
+                ),
+                _buildStatItem(
+                  context,
+                  label: AppStrings.patch,
+                  value: '${DataService.currentPatch}/${DataService.totalPatches}',
+                ),
+                _buildStatItem(
+                  context,
+                  label: AppStrings.words,
+                  value: '${DataService.totalWords}',
+                ),
+              ],
             ),
-          ),
-          Text(
-            value,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.blue,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 
-  Widget _buildSectionTitle(String title, IconData icon) {
-    return Row(
+  Widget _buildStatItem(BuildContext context, {required String label, required String value}) {
+    return Column(
       children: [
-        Icon(icon, color: Colors.grey.shade600),
-        const SizedBox(width: 8),
         Text(
-          title,
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Colors.grey.shade700,
-          ),
+          value,
+          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          label,
+          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
         ),
       ],
     );
   }
 
-  Widget _buildMenuButton(
-    String text,
-    Color color,
-    VoidCallback onPressed,
-    int index,
-  ) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: color,
-        foregroundColor: Colors.white,
-        padding: const EdgeInsets.symmetric(vertical: 20),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
+  Widget _buildActionCard(
+    BuildContext context, {
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    required Color color,
+    required VoidCallback onTap,
+  }) {
+    return Card(
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(
+          color: color.withOpacity(0.3),
         ),
-        elevation: 5,
       ),
-      child: Text(
-        text,
-        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: color.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Icon(icon, color: color, size: 28),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.w600,
+                          ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      subtitle,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(
+                Icons.arrow_forward_ios,
+                size: 16,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
+            ],
+          ),
+        ),
       ),
-    )
-        .animate()
-        .fadeIn(duration: 500.ms, delay: (700 + index * 100).ms)
-        .slideX(begin: 0.3, end: 0)
-        .shimmer(duration: 2000.ms, delay: (1000 + index * 200).ms);
+    );
+  }
+
+  Widget _buildIconButton(
+    BuildContext context, {
+    required IconData icon,
+    required String label,
+    required VoidCallback onTap,
+  }) {
+    return Card(
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: BorderSide(
+          color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
+        ),
+      ),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: Column(
+            children: [
+              Icon(icon, color: Theme.of(context).colorScheme.primary),
+              const SizedBox(height: 8),
+              Text(
+                label,
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSimpleButton(
+    BuildContext context, {
+    required IconData icon,
+    required String label,
+    required VoidCallback onTap,
+  }) {
+    return Card(
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: BorderSide(
+          color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
+        ),
+      ),
+      child: ListTile(
+        onTap: onTap,
+        leading: Icon(icon, color: Theme.of(context).colorScheme.onSurfaceVariant),
+        title: Text(label),
+        trailing: Icon(
+          Icons.arrow_forward_ios,
+          size: 16,
+          color: Theme.of(context).colorScheme.onSurfaceVariant,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+    );
   }
 
   void _startLearning(bool isRevision) {
     final words = DataService.getCurrentPatch();
     if (words.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('No words available!')),
+        const SnackBar(content: Text(AppStrings.noWordsAvailable)),
       );
       return;
     }
@@ -295,6 +433,71 @@ class _HomeScreenState extends State<HomeScreen> {
     ).then((_) => setState(() {}));
   }
 
+  void _startTest(bool isRevision) {
+    final words = DataService.getCurrentPatch();
+    if (words.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text(AppStrings.noWordsAvailable)),
+      );
+      return;
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => FlashcardScreen(
+          words: words,
+          isTest: true,
+          isRevision: isRevision,
+        ),
+      ),
+    ).then((_) => setState(() {}));
+  }
+
+
+
+  void _startRevisionLearn() {
+    final words = DataService.getRevisionWords();
+    if (words.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('No revision words! Practice to add some.')),
+      );
+      return;
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => FlashcardScreen(
+          words: words,
+          isTest: false,
+          isRevision: false,
+        ),
+      ),
+    ).then((_) => setState(() {}));
+  }
+
+  void _startRevisionTest() {
+    final words = DataService.getRevisionWords();
+    if (words.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('No revision words! Practice to add some.')),
+      );
+      return;
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => FlashcardScreen(
+          words: words,
+          isTest: true,
+          isRevision: true,
+        ),
+      ),
+    ).then((_) => setState(() {}));
+  }
+
   Future<void> _nextPatch() async {
     await DataService.nextPatch();
     setState(() {});
@@ -306,6 +509,141 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
     }
+  }
+
+  Future<void> _practiceOldLesson() async {
+    final currentPatch = DataService.currentPatch;
+    
+    if (currentPatch <= 1) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('No previous lessons available')),
+      );
+      return;
+    }
+    
+    final maxPatches = currentPatch - 1;
+    int selectedPatches = 1;
+    
+    // Show dialog with slider to select number of patches
+    final patchCount = await showDialog<int>(
+      context: context,
+      builder: (context) => StatefulBuilder(
+        builder: (context, setState) => AlertDialog(
+          title: const Text('Practice Old Lessons'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                'Current: Patch ${DataService.currentPatch}/${DataService.totalPatches}',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+              ),
+              const SizedBox(height: 24),
+              Center(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primaryContainer,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        selectedPatches == 1 ? '1 patch' : '$selectedPatches patches',
+                        style: TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).colorScheme.onPrimaryContainer,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        '${selectedPatches * DataService.wordsPerPatch} words',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Theme.of(context).colorScheme.onPrimaryContainer.withOpacity(0.8),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 24),
+              Slider(
+                value: selectedPatches.toDouble(),
+                min: 1,
+                max: maxPatches.toDouble(),
+                divisions: maxPatches > 1 ? maxPatches - 1 : 1,
+                label: '$selectedPatches',
+                onChanged: (value) {
+                  setState(() {
+                    selectedPatches = value.toInt();
+                  });
+                },
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '1',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
+                    ),
+                    Text(
+                      '$maxPatches',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Cancel'),
+            ),
+            ElevatedButton.icon(
+              onPressed: () => Navigator.pop(context, selectedPatches),
+              icon: const Icon(Icons.play_arrow),
+              label: const Text('Start'),
+            ),
+          ],
+        ),
+      ),
+    );
+    
+    if (patchCount == null || !mounted) return;
+    
+    final oldWords = DataService.getPreviousPatch(patchCount);
+    
+    if (oldWords.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('No words found in selected patches')),
+      );
+      return;
+    }
+    
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => FlashcardScreen(
+          words: oldWords,
+          isTest: true,
+          isRevision: false,
+        ),
+      ),
+    ).then((_) => setState(() {}));
   }
 
   Future<void> _previousPatch() async {
