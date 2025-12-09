@@ -1,151 +1,301 @@
-Chinese,Pinyin,Meaning_English,Han_Viet,Nghia_Tieng_Viet,Example
-吧,ba,modal particle (suggestion),ba,trợ từ ngữ khí,我们走吧。Wǒmen zǒu ba. – Chúng ta đi nhé.
-白,bái,white,bạch,màu trắng,白云。Bái yún – mây trắng.
-百,bǎi,hundred,bách,một trăm,一百块。Yì bǎi kuài – 100 tệ.
-帮助,bāng zhù,to help,giúp trợ,giúp đỡ,谢谢你的帮助。Cảm ơn sự giúp đỡ của bạn.
-报纸,bào zhǐ,newspaper,báo chỉ,tờ báo,我买报纸。Tôi mua báo.
-比,bǐ,than (comparison particle),tỉ,so với/hơn,他跑得比我快。Anh ấy chạy nhanh hơn tôi.
-别,bié,don’t (imperative),biệt,đừng,别说话。Đừng nói chuyện.
-长,zhǎng,long,trường,dài,长头发。Tóc dài.
-唱歌,chàng gē,to sing,xướng ca,hát,我喜欢唱歌。Tôi thích hát.
-出,chū,to go out,xuất,ra ngoài,他出去了。Anh ấy ra ngoài rồi.
-穿,chuān,to wear,xuyên,mặc,我穿新衣服。Tôi mặc đồ mới.
-船,chuán,boat,thuyền,thuyền,坐船。Đi thuyền.
-次,cì,number of times,thứ,lần,我去过两次。Tôi đã đi hai lần.
-从,cóng,from,tòng,từ,从这儿到学校很近。Từ đây đến trường rất gần.
-错,cuò,wrong,thác,sai,你错了。Bạn sai rồi.
-打篮球,dǎ lán qiú,to play basketball,đả lam cầu,chơi bóng rổ,我会打篮球。Tôi biết chơi bóng rổ.
-大家,dà jiā,everyone,đại gia,mọi người,大家好！Xin chào mọi người!
-但是,dàn shì,but,đãn thị,nhưng,我想去，但是没时间。Tôi muốn đi nhưng không có thời gian.
-到,dào,to arrive,đáo,đến,我到了。Tôi đến rồi.
-得,dé,particle after verb,đắc,được (bổ ngữ)," ""他说得很好。Anh ấy nói rất tốt."""
-得,dé,have to,đãi,phải,我得走了。Tôi phải đi rồi.
-弟弟,dì di,younger brother,đệ đệ,em trai,我有一个弟弟。Tôi có một em trai.
-第一,dì yī,first,đệ nhất,thứ nhất,第一名。Hạng nhất.
-懂,dǒng,to understand,đổng,hiểu,我懂了。Tôi hiểu rồi.
-房间,fáng jiān,room,phòng gian,phòng,这是我的房间。Đây là phòng của tôi.
-非常,fēi cháng,very/ extremely,phi thường,rất/cực kỳ,我非常喜欢。Tôi rất thích.
-服务员,fú wù yuán,waiter,phục vụ viên,nhân viên phục vụ,"服务员，请结账。Phục vụ, tính tiền."
-高,gāo,tall/high,cao,cao,他很高。Anh ấy rất cao.
-告诉,gào sù,to tell,cáo tố,nói/bảo,告诉我吧。Nói cho tôi biết đi.
-哥哥,gē gē,older brother,ca ca,anh trai,我哥哥。Anh trai tôi.
-给,gěi,to give,cấp,cho,给你。Cho bạn.
-公共汽车,gōng gòng qì chē,bus,công cộng khí xa,xe buýt,我坐公共汽车。Tôi đi xe buýt.
-公斤,gōng jīn,kilogram,công cân,kg,一公斤苹果。1 kg táo.
-公司,gōng sī,company,công ty,công ty,我在公司上班。Tôi làm việc ở công ty.
-贵,guì,expensive,quý,đắt,太贵了！Đắt quá!
-还,hái,still/also,hoàn,vẫn/còn,我还不知道。Tôi vẫn chưa biết.
-孩子,hái zi,child,hài tử,đứa trẻ,孩子们在玩。Trẻ con đang chơi.
-好吃,hǎo chī,delicious,hảo xích,ngon,这个面条很好吃。Mì này ngon lắm.
-号,hào,number,hiệu,số/ngày,今天几号？Hôm nay ngày mấy?
-黑,hēi,black,hắc,màu đen,黑衣服。Quần áo đen.
-红,hóng,red,hồng,màu đỏ,红苹果。Táo đỏ.
-欢迎,huān yíng,to welcome,hoan nghênh,hoan nghênh,欢迎你！Chào mừng bạn!
-还,hái,to return,hoàn,trả lại,把书还给我。Trả sách lại cho tôi.
-回答,huí dá,to answer,hồi đáp,trả lời,请回答我的问题。Hãy trả lời câu hỏi của tôi.
-机场,jī chǎng,airport,cơ trường,sân bay,我在机场。Tôi ở sân bay.
-鸡蛋,jī dàn,egg,kê đản,trứng gà,吃鸡蛋。Ăn trứng.
-件,jiàn,measure word for clothes,kiện,chiếc/cái,一件衣服。Một cái áo.
-教室,jiào shì,classroom,giáo thất,phòng học,我们在教室学习。Chúng tôi học trong lớp.
-姐姐,jiě jiě,older sister,tỉ tỉ,chị gái,我姐姐。Chị tôi.
-介绍,jiè shào,to introduce,giới thiệu,giới thiệu,我来介绍一下。Để tôi giới thiệu.
-进,jìn,to enter,tiến,tiến vào,请进。Mời vào.
-近,jìn,near,cận,gần,我家很近。Nhà tôi rất gần.
-就,jiù,then/just, tựu,thì/liền,我马上就来。Tôi đến ngay.
-觉得,jué de,to think,giác đắc,cảm thấy,我觉得很开心。Tôi cảm thấy rất vui.
-咖啡,kā fēi,coffee,ca phi,cà phê,我喝咖啡。Tôi uống cà phê.
-开始,kāi shǐ,to start,khai thủy,bắt đầu,我们开始吧。Chúng ta bắt đầu thôi.
-考试,kǎo shì,exam,khảo thí,thi,我明天考试。Ngày mai tôi thi.
-可能,kě néng,maybe,khả năng,có thể,他可能来。Anh ấy có thể đến.
-可以,kě yǐ,can/ may,khả dĩ,có thể,可以进来吗？Có thể vào không?
-课,kè,lesson / course,khóa,bài học,上课了。Vào học rồi.
-快,kuài,fast,khối,nhanh,他跑得很快。Anh ấy chạy rất nhanh.
-快乐,kuài lè,happy,khoái lạc,vui vẻ,生日快乐！Chúc mừng sinh nhật!
-累,lèi,tired,lệ,mệt,我很累。Tôi rất mệt.
-离,lí,away from,ly,cách,学校离这里很近。Trường cách đây rất gần.
-两,liǎng,two (before classifier),lưỡng,hai,两个人。Hai người.
-路,lù,road,lộ,đường,这条路很长。Con đường này dài.
-旅游,lǚ yóu,to travel,du du,lữ du/du lịch,我喜欢旅游。Tôi thích du lịch.
-卖,mài,to sell,mại,bán,她卖水果。Cô ấy bán trái cây.
+Chinese,Pinyin,Meaning_English,Han_Viet,Nghia_Tieng_Viet,Cach_dung_trong_cau
+爱,ài,to love; affection; to be fond of; to like,ái,yêu,我爱你。Wǒ ài nǐ. – Tôi yêu bạn.
+八,bā,eight; 8,bát,tám,我有八本书。Tôi có tám quyển sách.
+爸爸,bàba,(informal) father; CL:個|个[gè];位[wèi],bả bả,ba/bố,爸爸回家了。Ba đã về nhà.
+吧,ba,(modal particle indicating polite suggestion); ...right?; ...OK?,ba,trợ từ ngữ khí,我们走吧。Wǒmen zǒu ba. – Chúng ta đi nhé.
+白,bái,white; snowy; pure; bright; empty; blank; plain; clear; to make clear; in vain; gratuitous; free of charge; reactionary; anti-communist; funeral; to stare coldly; to write wrong character; to state; to explain; vernacular; spoken lines in opera; surname Bai,bạch,màu trắng,白云。Bái yún – mây trắng.
+百,bǎi,hundred; numerous; all kinds of; surname Bai,bách,một trăm,一百块。Yì bǎi kuài – 100 tệ.
+帮助,bāngzhù,assistance; aid; to help; to assist,giúp trợ,giúp đỡ,谢谢你的帮助。Cảm ơn sự giúp đỡ của bạn.
+报纸,bàozhǐ,newspaper; newsprint; CL:份[fèn];期[qī];張|张[zhāng],báo chỉ,tờ báo,我买报纸。Tôi mua báo.
+杯子,bēizi,cup; glass; CL:個|个[gè];支[zhī];枝[zhī],bôi tử,cái cốc/cái ly,这个杯子是我的。Đây là cái ly của tôi.
+北京,běijīng,Beijing; capital of People's Republic of China; Peking; PRC government,Bắc Kinh,Bắc Kinh,我去北京。Tôi đi Bắc Kinh.
+本,běn,roots or stems of plants; origin; source; this; the current; root; foundation; basis; classifier for books; periodicals; files etc; originally,bản,quyển/cuốn,我有三本书。Tôi có ba quyển sách.
+比,bǐ,(particle used for comparison and -er than); to compare; to contrast; to gesture (with hands); ratio,tỉ,so với/hơn,他跑得比我快。Anh ấy chạy nhanh hơn tôi.
+别,bié,to leave; to depart; to separate; to distinguish; to classify; other; another; do not; must not; to pin,biệt,đừng,别说话。Đừng nói chuyện.
+不客气,bùkèqi,you're welcome; impolite; rude; blunt; don't mention it,bất khách khí,không có gì,A：谢谢！B：不客气！
+不,bù,(negative prefix); not; no,bất,không,我不去。Tôi không đi.
+菜,cài,dish (type of food); vegetables; vegetable; cuisine; CL:盤|盘[pán];道[dào],thái,món ăn,我喜欢这个菜。Tôi thích món ăn này.
+茶,chá,tea; tea plant; CL:杯[bēi];壺|壶[hú],trà,trà,我喝茶。Tôi uống trà.
+长,cháng,length; long; forever; always; constantly,trưởng,phát triển/lớn,长头发。Tóc dài.
+唱歌,chànggē,to sing a song,xướng ca,hát,我喜欢唱歌。Tôi thích hát.
+吃,chī,to eat; to have one's meal; to eradicate; to destroy; to absorb; to suffer; to exhaust,xích,ăn,我吃米饭。Tôi ăn cơm.
+出,chū,to go out; to come out; to occur; to produce; to go beyond; to rise; to put forth; to happen; classifier for dramas; plays; operas etc,xuất,ra ngoài,他出去了。Anh ấy ra ngoài rồi.
+出租车,chūzūchē,taxi,xuất tô xa,xe taxi,我们坐出租车去。Chúng tôi đi taxi.
+穿,chuān,to bore through; pierce; perforate; penetrate; pass through; to dress; to wear; to put on; to thread,xuyên,mặc,我穿新衣服。Tôi mặc đồ mới.
+船,chuán,a boat; vessel; ship; CL:條|条[tiáo];艘[sōu];隻|只[zhī],thuyền,thuyền,坐船。Đi thuyền.
+次,cì,next in sequence; second; the second (day; time etc); secondary; vice-; sub-; infra-; inferior quality; substandard; order; sequence; hypo- (chemistry); classifier for enumerated events: time,thứ,lần,我去过两次。Tôi đã đi hai lần.
+从,cóng,from; via; passing through; through (a gap); past; ever (followed by negative; meaning never); (formerly pr. zòng and related to 縱|纵) to follow; to comply with; to obey; to join; to engage in; adopting some mode of action or attitude; follower; retainer; accessory; accomplice; related by common paternal grandfather or earlier ancestor; surname Cong,tòng,từ,从这儿到学校很近。Từ đây đến trường rất gần.
+错,cuò,mistake; error; blunder; fault; cross; uneven; wrong; CL:個|个[gè],thác,sai,你错了。Bạn sai rồi.
+打电话,dǎdiànhuà,to make a telephone call,đả điện thoại,gọi điện,我给你打电话。Tôi gọi điện cho bạn.
+打篮球,dǎlánqiú,play basketball,đả lam cầu,chơi bóng rổ,我会打篮球。Tôi biết chơi bóng rổ.
+大,dà,big; huge; large; major; great; wide; deep; oldest; eldest,đại,to/lớn,这是一只大狗。Đây là con chó lớn.
+大家,dàjiā,authority; everyone,đại gia,mọi người,大家好！Xin chào mọi người!
+但是,dànshì,but; however,đãn thị,nhưng,我想去，但是没时间。Tôi muốn đi nhưng không có thời gian.
+到,dào,to (a place); until (a time); up to; to go; to arrive,đáo,đến,我到了。Tôi đến rồi.
+的,de,of; structural particle: used before a noun; linking it to preceding possessive or descriptive attributive,đích,của,这是我的书。Đây là sách của tôi.
+得,de,structural particle: used after a verb (or adjective as main verb); linking it to following phrase indicating effect; degree; possibility etc,đãi,phải,他说得很好。Anh ấy nói rất tốt.
+等,děng,class; rank; grade; equal to; same as; to wait for; to await; et cetera; and so on; et al. (and other authors); after; as soon as; once,đẳng,đẳng cấp/chờ,等一下。Chờ một chút.
+弟弟,dìdi,younger brother; CL:個|个[gè];位[wèi],đệ đệ,em trai,我有一个弟弟。Tôi có một em trai.
+第一,dìyī,first; number one,đệ nhất,thứ nhất,第一名。Hạng nhất.
+点,diǎn,drop (of liquid); stain; spot; speck; jot; dot stroke (in Chinese characters); decimal point; point; mark (of degree or level); a place (with certain characteristics); iron bell; o’clock; a little; a bit; some; (point) unit of measurement for type; to touch on briefly; to make clear; to light; to ignite; to kindle; period of time at night (24 minutes) (old); a drip; to dibble; classifier for small indeterminate quantities,điểm,giờ/chấm,现在三点。Bây giờ là 3 giờ.
+电脑,diànnǎo,computer; CL:臺|台[tái],điện não,máy tính,我有一台电脑。Tôi có một máy tính.
+电视,diànshì,television; TV; CL:臺|台[tái];個|个[gè],điện thị,tivi,我在看电视。Tôi đang xem tivi.
+电影,diànyǐng,movie; film; CL:部[bù];片[piàn];幕[mù];場|场[chǎng],điện ảnh,phim,我喜欢中国电影。Tôi thích phim Trung Quốc.
+东西,dōngxi,thing; stuff; person; CL:個|个[gè];件[jiàn],đông tây,đồ vật,我买了一些东西。Tôi mua vài món đồ.
+懂,dǒng,to understand; to know,đổng,hiểu,我懂了。Tôi hiểu rồi.
+都,dōu,all; both; entirely (due to) each; even; already,đô,đều,我们都是学生。Chúng tôi đều là học sinh.
+读,dú,to read; to study; reading of word (i.e. pronunciation); similar to 拼音[pīn yīn],độc,đọc,我读书。Tôi đọc sách.
+对,duì,couple; pair; to be opposite; to oppose; to face; versus; for; to; correct (answer); to answer; to reply; to direct (towards sth); right,đối,đúng/đôi,一对夫妻。Một cặp vợ chồng.
+对不起,duìbuqǐ,unworthy; to let down; I'm sorry; excuse me; pardon me; if you please; sorry? (please repeat),đối bất khởi,xin lỗi,对不起！— Không sao。
+多,duō,many; much; a lot of; numerous; multi-,đa,nhiều,这里很多人。Ở đây nhiều người.
+多少,duōshǎo,number; amount; somewhat,đa thiểu,bao nhiêu,这个多少钱？Cái này bao nhiêu tiền?
+儿子,érzi,son,nhi tử,con trai,他有一个儿子。Anh ấy có một con trai.
+二,èr,two; 2; stupid (Beijing dialect),nhị,hai,二月是二月。Tháng hai là tháng 2.
+饭馆,fànguǎn,restaurant; CL:家[jiā],phạn quán,nhà hàng/quán ăn,我们去饭馆吃饭。Chúng tôi đi quán ăn.
+房间,fángjiān,room; CL:間|间[jiān],phòng gian,phòng,这是我的房间。Đây là phòng của tôi.
+非常,fēicháng,unusual; extraordinary; extreme; very; exceptional,phi thường,rất/cực kỳ,我非常喜欢。Tôi rất thích.
+飞机,fēijī,airplane; CL: 架[jià],phi cơ,máy bay,我坐飞机去北京。Tôi đi Bắc Kinh bằng máy bay.
+分钟,fēnzhōng,minute,phân chung,phút,等我五分钟。Đợi tôi năm phút.
+服务员,fúwùyuán,waiter; waitress; attendant; customer service personnel; CL:個|个[gè],phục vụ viên,nhân viên phục vụ,服务员，请结账。Phục vụ; tính tiền.
+高,gāo,high; tall; above average; loud; your (honorific); surname Gao,cao,cao,他很高。Anh ấy rất cao.
+高兴,gāoxìng,happy; glad; willing (to do sth); in a cheerful mood,cao hứng,vui,认识你很高兴。Rất vui được gặp bạn.
+告诉,gàosu,to tell; to inform; to let know,cáo tố,nói/bảo,告诉我吧。Nói cho tôi biết đi.
+哥哥,gēge,older brother; CL:個|个[gè];位[wèi],ca ca,anh trai,我哥哥。Anh trai tôi.
+个,gè,individual; this; that; size; classifier for people or objects in general,cá,cái,一个人：một người.
+给,gěi,to; for; for the benefit of; to give; to allow; to do sth (for sb); (passive particle),cấp,cho,给你。Cho bạn.
+公共汽车,gōnggòngqìchē,bus; CL:輛|辆[liàng];班[bān],công cộng khí xa,xe buýt,我坐公共汽车。Tôi đi xe buýt.
+公斤,gōngjīn,kilogram (kg),công cân,kg,一公斤苹果。1 kg táo.
+公司,gōngsī,(business) company; company; firm; corporation; incorporated; CL:家[jiā],công ty,công ty,我在公司上班。Tôi làm việc ở công ty.
+工作,gōngzuò,job; work; construction; task; CL:個|个[gè];份[fèn];項|项[xiàng],công tác,làm việc,我在学校工作。Tôi làm việc ở trường.
+狗,gǒu,dog; CL:隻|只[zhī];條|条[tiáo],cẩu,chó,我有一只狗。Tôi có một con chó.
+贵,guì,expensive; noble; your (name); precious,quý,đắt,太贵了！Đắt quá!
+过,guò,(experienced action marker); to cross; to go over; to pass (time); to celebrate (a holiday); to live; to get along; excessively; too-; surname Guo,quá,(trợ từ),我去过北京。Tôi đã đến Bắc Kinh.
+还,hái,still; still in progress; still more; yet; even more; in addition; fairly; passably (good); as early as; even; also; else,hoàn,trả lại,我还不知道。Tôi vẫn chưa biết.
+孩子,háizi,child,hài tử,đứa trẻ,孩子们在玩。Trẻ con đang chơi.
+汉语,hànyǔ,Chinese language; CL:門|门[mén],Hán ngữ,tiếng Trung,我学习汉语。Tôi học tiếng Trung.
+好,hǎo,good; well; proper; good to; easy to; very; so; (suffix indicating completion or readiness),hảo,tốt,今天天气很好。Hôm nay thời tiết rất tốt.
+好吃,hǎochī,tasty; delicious,hảo xích,ngon,这个面条很好吃。Mì này ngon lắm.
+号,hào,day of a month; (suffix used after) name of a ship; (ordinal) number,hiệu,số/ngày,今天几号？Hôm nay ngày mấy?
+喝,hē,to drink; to shout (a command); My goodness!,hát,uống,我喝水。Tôi uống nước.
+和,hé,and; together with; with; sum; union; peace; harmony; surname He; Japanese related; Taiwan pr.  hàn,hòa,và,我和你。Tôi và bạn.
+黑,hēi,black; dark; abbr. for Heilongjiang 黑龍江|黑龙江 province in northeast China,hắc,màu đen,黑衣服。Quần áo đen.
+很,hěn,(adverb of degree); quite; very; awfully,ngận,rất,我很高兴。Tôi rất vui.
+红,hóng,bonus; popular; red; revolutionary,hồng,màu đỏ,红苹果。Táo đỏ.
+后面,hòumian,rear; back; behind; later; afterwards,hậu diện,phía sau,学校后面有商店。Sau trường có cửa hàng.
+欢迎,huānyíng,to welcome; welcome,hoan nghênh,hoan nghênh,欢迎你！Chào mừng bạn!
+回,huí,to circle; to go back; to turn around; to answer; to return; to revolve; Hui ethnic group (Chinese Muslims); time; classifier for acts of a play; section or chapter (of a classic book),hồi,về,我回家。Tôi về nhà.
+回答,huídá,to reply; to answer; the answer; CL:個|个[gè],hồi đáp,trả lời,请回答我的问题。Hãy trả lời câu hỏi của tôi.
+会,huì,can; be possible; be able to; will; be likely to; be sure to; to assemble; to meet; to gather; to see; union; group; association; CL:個|个[gè]; a moment (Taiwan pr. for this sense is huǐ),hội,biết/có thể,我会说中文。Tôi biết nói tiếng Trung.
+火车站,huǒchēzhàn,train station,hỏa xa trạm,ga tàu,我们在火车站见。Chúng ta gặp ở ga tàu.
+机场,jīchǎng,airport; airfield; CL:家[jiā];處|处[chù],cơ trường,sân bay,我在机场。Tôi ở sân bay.
+鸡蛋,jīdàn,(chicken) egg; hen's egg; CL:個|个[gè];打[dá],kê đản,trứng gà,吃鸡蛋。Ăn trứng.
+几,jǐ,how much; how many; several; a few,kỷ,mấy,你几岁？Bạn mấy tuổi?
+家,jiā,home; family; classifier for families or businesses; refers to the philosophical schools of pre-Han China; noun suffix for specialists in some activity such as musician or revolutionary; corresponds to English -ist; -er; -ary or -ian; surname Jia; CL:個|个[gè],gia,nhà,我家在河内。Nhà tôi ở Hà Nội.
+件,jiàn,item; component; classifier for events; things; clothes etc,kiện,chiếc/cái,一件衣服。Một cái áo.
+叫,jiào,to shout; to call; to order; to ask; to be called; by (indicates agent in the passive mood),khiếu,gọi là,我叫明。Tôi tên là Minh.
+教室,jiàoshì,classroom; CL:間|间[jiān],giáo thất,phòng học,我们在教室学习。Chúng tôi học trong lớp.
+姐姐,jiějie,older sister; CL:個|个[gè],tỉ tỉ,chị gái,我姐姐。Chị tôi.
+介绍,jièshào,to present; to introduce; to recommend; to suggest; to let know; to brief,giới thiệu,giới thiệu,我来介绍一下。Để tôi giới thiệu.
+今天,jīntiān,today; at the present; now,kim thiên,hôm nay,今天是星期三。Hôm nay là thứ tư.
+进,jìn,to advance; to enter; to come (or go) into; to receive or admit; to eat or drink; to submit or present; (used after a verb) into; in; to score a goal,tiến,tiến vào,请进。Mời vào.
+近,jìn,near; close to; approximately,cận,gần,我家很近。Nhà tôi rất gần.
+九,jiǔ,nine; 9,cửu,chín,我有九个苹果。Tôi có chín quả táo.
+就,jiù,at once; right away; only; just (emphasis); as early as; already; as soon as; then; in that case; as many as; even if; to approach; to move towards; to undertake; to engage in; to suffer; subjected to; to accomplish; to take advantage of; to go with (of foods); with regard to; concerning,tựu,thì/liền,我马上就来。Tôi đến ngay.
+觉得,juéde,to think; to feel,giác đắc,cảm thấy,我觉得很开心。Tôi cảm thấy rất vui.
+咖啡,kāfēi,coffee; CL:杯[bēi],ca phi,cà phê,我喝咖啡。Tôi uống cà phê.
+开,kāi,to open; to start; to turn on; to boil; to write out (a medical prescription); to operate (vehicle); abbr. for 開爾文|开尔文 degrees Kelvin,khai,mở,开门！Mở cửa!
+开始,kāishǐ,to begin; beginning; to start; initial; CL:個|个[gè],khai thủy,bắt đầu,我们开始吧。Chúng ta bắt đầu thôi.
+看,kān,to look after; to take care of; to watch; to guard,khán,xem/nhìn,我看书。Tôi đọc sách.
+看见,kànjiàn,to see; to catch sight of,khán kiến,nhìn thấy,我看见他了。Tôi nhìn thấy anh ấy.
+考试,kǎoshì,exam; CL:次[cì],khảo thí,thi,我明天考试。Ngày mai tôi thi.
+可能,kěnéng,might (happen); possible; probable; possibility; probability; maybe; perhaps; CL:個|个[gè],khả năng,có thể,他可能来。Anh ấy có thể đến.
+可以,kěyǐ,can; may; possible; able to,khả dĩ,có thể,可以进来吗？Có thể vào không?
+课,kè,subject; course; class; lesson; CL:堂[táng];节|節[jié];門|门[mén],khóa,bài học,上课了。Vào học rồi.
+块,kuài,lump (of earth); chunk; piece; classifier for pieces of cloth; cake; soap etc; colloquial word for yuan (or other unit of currency such as Hong Kong or US dollar etc); usually as 塊錢|块钱,khối,đồng/miếng,一块钱：1 tệ
+快,kuài,rapid; quick; speed; rate; soon; almost; to make haste; clever; sharp (of knives or wits); forthright; plain-spoken; gratified; pleased; pleasant,khối,nhanh,他跑得很快。Anh ấy chạy rất nhanh.
+快乐,kuàilè,happy; merry,khoái lạc,vui vẻ,生日快乐！Chúc mừng sinh nhật!
+来,lái,to come; to arrive; to come round; ever since; next,lai,đến,你来这儿。Bạn đến đây.
+老师,lǎoshī,teacher; CL:個|个[gè];位[wèi],lão sư,giáo viên,我是老师。Tôi là giáo viên.
+了,le,(modal particle intensifying preceding clause); (completed action marker),liễu,(trợ từ) đã,我吃了。Tôi ăn rồi.
+累,lèi,tired; weary; to strain; to wear out; to work hard,lệ,mệt,我很累。Tôi rất mệt.
+冷,lěng,cold,lãnh,lạnh,今天很冷。Hôm nay rất lạnh.
+离,lí,to leave; to part from; to be away from; (in giving distances) from; without (sth); independent of; one of the eight trigrams of the Book of Changes representing fire (old),ly,cách,学校离这里很近。Trường cách đây rất gần.
+里,lǐ,lining; interior; inside; internal; also written 裡|里 [lǐ],lí,bên trong,在家里：ở trong nhà.
+两,liǎng,both; two; ounce; some; a few; tael; weight equal to  grams,lưỡng,hai,两个人。Hai người.
+零,líng,zero; nought; zero sign; fractional; fragmentary; odd (of numbers); (placed between two numbers to indicate a smaller quantity followed by a larger one); fraction; (in mathematics) remainder (after division); extra; to wither and fall; to wither,linh,không,零度。0 độ.
+六,liù,six; 6,lục,sáu,六个学生。Sáu học sinh.
+路,lù,road; path; way; CL:條|条[tiáo],lộ,đường,这条路很长。Con đường này dài.
+旅游,lǚyóu,trip; journey; tourism; travel; tour,du du,lữ du/du lịch,我喜欢旅游。Tôi thích du lịch.
+妈妈,māma,mama; mommy; mother; CL:個|个[gè];位[wèi],ma ma,mẹ,妈妈在家。Mẹ ở nhà.
+吗,ma,(question tag),ma,à/hả/không?,你好吗？Bạn khỏe không?
+买,mǎi,to buy; to purchase,mãi,mua,我买苹果。Tôi mua táo.
+卖,mài,to sell; to betray; to spare no effort; to show off or flaunt,mại,bán,她卖水果。Cô ấy bán trái cây.
 慢,màn,slow,mạn,chậm,太慢了！Chậm quá!
-忙,máng,busy,mang,bận,我很忙。Tôi bận.
-每,měi,every,mỗi,mỗi,每天。Mỗi ngày.
-妹妹,mèi mèi,younger sister,muội muội,em gái,我妹妹。Em gái tôi.
-门,mén,door,môn,cửa,开门！Mở cửa!
-男人,nán rén,man,nam nhân,đàn ông,那个男人是谁？Người đàn ông đó là ai?
-您,nín,you (polite),nhân,ngài,您好吗？Ngài khỏe không?
-牛奶,niú nǎi,milk,ngưu nãi,sữa bò,我喝牛奶。Tôi uống sữa.
-女人,nǚ rén,woman,nữ nhân,phụ nữ,那个女人很漂亮。Người phụ nữ đó rất đẹp.
-旁边,páng biān,next to,bàng biên,bên cạnh,我在你旁边。Tôi ở bên cạnh bạn.
-跑步,pǎo bù,to run,bào bộ,chạy bộ,我每天跑步。Tôi chạy bộ mỗi ngày.
-便宜,pián yi,cheap,tiện nghi,rẻ,很便宜。Rẻ lắm.
-票,piào,ticket,phiếu,vé,一张票。Một vé.
-妻子,qī zǐ,wife,thê tử,vợ,他有一个妻子。Anh ấy có một người vợ.
-起床,qǐ chuáng,to get up,khởi sàng,dậy,我七点起床。Tôi dậy lúc 7 giờ.
+忙,máng,busy; hurriedly,mang,bận,我很忙。Tôi bận.
+猫,māo,cat; CL:隻|只[zhī],miêu,mèo,我有一只猫。Tôi có một con mèo.
+没,méi,(negative prefix for verbs); have not; not,một,không,我没钱。Tôi không có tiền.
+没关系,méiguānxi,it doesn't matter,một quan hệ,không sao,没关系！Không sao!
+每,měi,each; every,mỗi,mỗi,每天。Mỗi ngày.
+妹妹,mèimei,younger sister; fig. younger woman (esp. girl friend or rival); CL:個|个[gè],muội muội,em gái,我妹妹。Em gái tôi.
+门,mén,gate; door; CL:扇[shàn]; gateway; doorway; CL:個|个[gè]; opening; valve; switch; way to do something; knack; family; house; (religious) sect; school (of thought); class; category; phylum or division (taxonomy); classifier for large guns; classifier for lessons; subjects; branches of technology,môn,cửa,开门！Mở cửa!
+米饭,mǐfàn,(cooked) rice,mễ phạn,cơm,我爱吃米饭。Tôi thích ăn cơm.
+明天,míngtiān,tomorrow,minh thiên,ngày mai,明天见。Hẹn gặp ngày mai.
+名字,míngzi,name (of a person or thing); CL:個|个[gè],danh tự,tên,你的名字是什么？Tên bạn là gì?
+哪,nǎ,how; which,nả,nào,你去哪？Bạn đi đâu?
+那,nà,that; those; then (in that case); commonly pr. nèi before a classifier; esp. in Beijing,na,đó/kia,那是我的。Cái đó là của tôi.
+男人,nánrén,a man; a male; men; CL:個|个[gè],nam nhân,đàn ông,那个男人是谁？Người đàn ông đó là ai?
+呢,ne,(question particle for subjects already mentioned),ni,thì sao?,你呢？Còn bạn?
+能,néng,to be able to; to be capable of; ability; capability; able; capable; can possibly; (usually used in the negative) to have the possibility of,năng,có thể,我能来。Tôi có thể đến.
+你,nǐ,you (informal; as opposed to polite 您[nín]),nễ,bạn,你好吗？Bạn khỏe không?
+年,nián,year; CL:個|个[gè],niên,năm,今年是2025年。Năm nay là 2025.
+您,nín,you (polite; as opposed to informal 你[nǐ]),nhân,ngài,您好吗？Ngài khỏe không?
+牛奶,niúnǎi,cow's milk; CL:瓶[píng];杯[bēi],ngưu nãi,sữa bò,我喝牛奶。Tôi uống sữa.
+女儿,nǚér,daughter,nữ nhi,con gái,我有一个女儿。Tôi có một con gái.
+女人,nǚrén,woman,nữ nhân,phụ nữ,那个女人很漂亮。Người phụ nữ đó rất đẹp.
+旁边,pángbiān,lateral; side; to the side; beside,bàng biên,bên cạnh,我在你旁边。Tôi ở bên cạnh bạn.
+跑步,pǎobù,to walk quickly; to march; to run,bào bộ,chạy bộ,我每天跑步。Tôi chạy bộ mỗi ngày.
+朋友,péngyou,friend; CL:個|个[gè];位[wèi],bằng hữu,bạn bè,他是我的朋友。Anh ấy là bạn tôi.
+便宜,piányi,small advantages; to let sb off lightly; cheap; inexpensive,tiện nghi,rẻ,很便宜。Rẻ lắm.
+票,piào,ticket; ballot; bank note; CL:張|张[zhāng]; person held for ransom; amateur performance of Chinese opera; classifier for shipments and business transactions (topolect),phiếu,vé,一张票。Một vé.
+漂亮,piàoliang,pretty; beautiful,phiếu lượng,xinh đẹp,她很漂亮。Cô ấy rất đẹp.
+苹果,píngguǒ,apple; CL:個|个[gè];顆|颗[kē],bình quả,táo,我吃苹果。Tôi ăn táo.
+七,qī,seven; 7,thất,bảy,七个人。7 người.
+妻子,qīzi,wife; CL:個|个[gè],thê tử,vợ,他有一个妻子。Anh ấy có một người vợ.
+起床,qǐchuáng,to get up,khởi sàng,dậy,我七点起床。Tôi dậy lúc 7 giờ.
 千,qiān,thousand,thiên,một nghìn,一千块。1000 tệ.
-晴,qíng,sunny,tình,trời nắng,今天是晴天。Hôm nay trời nắng.
-去年,qù nián,last year,khứ niên,năm ngoái,我去年去中国。Tôi đi Trung Quốc năm ngoái.
-让,ràng,to let/allow,nhượng,để/cho phép,让我看看。Cho tôi xem.
-上班,shàng bān,to go to work,thượng ban,đi làm,我八点上班。Tôi đi làm lúc 8 giờ.
-身体,shēn tǐ,body,thân thể,cơ thể,身体好吗？Sức khỏe ổn không?
-生病,shēng bìng,to get sick,sinh bệnh,ốm,我生病了。Tôi bị bệnh.
-生日,shēng rì,birthday,sinh nhật,sinh nhật,生日快乐！Chúc mừng sinh nhật!
-时间,shí jiān,time,thời gian,thời gian,我没有时间。Tôi không có thời gian.
-事情,shì qíng,thing/matter,sự tình,sự việc,什么事情？Chuyện gì vậy?
-手表,shǒu biǎo,watch,thủ biểu,đồng hồ đeo tay,我的手表。Đồng hồ của tôi.
-手机,shǒu jī,cell phone,thủ cơ,điện thoại di động,我的手机没电了。Điện thoại tôi hết pin rồi.
-送,sòng,to give/ deliver,tống,tặng/đưa,我送你回家。Tôi đưa bạn về.
-所以,suǒ yǐ,therefore, sở dĩ,cho nên,所以我不去了。Cho nên tôi không đi.
+钱,qián,coin; money; CL:筆|笔[bǐ],tiền,tiền,我有很多钱。Tôi có nhiều tiền.
+前面,qiánmiàn,ahead; in front; preceding; above,tiền diện,phía trước,前面有人。Phía trước có người.
+晴,qíng,clear; fine (weather),tình,trời nắng,今天是晴天。Hôm nay trời nắng.
+请,qǐng,to ask; to invite; please (do sth); to treat (to a meal etc); to request,thỉnh,xin/mời,请进！Mời vào!
+去,qù,to go; to go to (a place); to cause to go or send (sb); to remove; to get rid of; (when used either before or after a verb) to go in order to do sth; to be apart from in space or time; (after a verb of motion indicates movement away from the speaker); (used after certain verbs to indicate detachment or separation); (of a time or an event etc) just passed or elapsed,khứ,đi,我去学校。Tôi đi học.
+去年,qùnián,last year,khứ niên,năm ngoái,我去年去中国。Tôi đi Trung Quốc năm ngoái.
+让,ràng,to yield; to permit; to let sb do sth; to have sb do sth,nhượng,để/cho phép,让我看看。Cho tôi xem.
+热,rè,heat; to heat up; fervent; hot (of weather); warm up,nhiệt,nóng,天气很热。Thời tiết rất nóng.
+人,rén,man; person; people; CL:個|个[gè];位[wèi],nhân,người,很多人。Nhiều người.
+认识,rènshi,to know; to recognize; to be familiar with; acquainted with sth; knowledge; understanding; awareness; cognition,nhận thức,biết/quen,我认识他。Tôi quen anh ấy.
+日,rì,sun; day; date; day of the month; abbr. for 日本|日本 Japan,nhật,ngày,今天是三日。Hôm nay ngày 3.
+三,sān,three; 3,tam,ba,三个人。Ba người.
+商店,shāngdiàn,store; shop; CL:家[jiā];個|个[gè],thương điếm,cửa hàng,我去商店。Tôi đi cửa hàng.
+上,shàng,on; on top; upon; first (of multiple parts); previous; last; upper; higher; above; to climb; to go into; to go up; to attend (class or university),thượng,trên,在桌子上。Trên bàn.
+上班,shàngbān,to go to work; to be on duty; to start work; to go to the office,thượng ban,đi làm,我八点上班。Tôi đi làm lúc 8 giờ.
+上午,shàngwǔ,morning; CL:個|个[gè],thượng ngọ,buổi sáng,上午我学习。Sáng tôi học.
+少,shǎo,few; little; lack,thiểu,ít,人很少。Ít người.
+谁,shéi,who; also pronounced shuí,thuỳ,ai,你是谁？Bạn là ai?
+身体,shēntǐ,(human) body; health; CL:個|个[gè],thân thể,cơ thể,身体好吗？Sức khỏe ổn không?
+什么,shénme,what?; who?; something; anything,thập ma,cái gì,你说什么？Bạn nói gì?
+生病,shēngbìng,to fall ill; to sicken,sinh bệnh,ốm,我生病了。Tôi bị bệnh.
+生日,shēngrì,birthday; CL:個|个[gè],sinh nhật,sinh nhật,生日快乐！Chúc mừng sinh nhật!
+十,shí,ten; 1,thập,mười,十个人。10 người.
+时候,shíhou,time; length of time; moment; period,thì hậu,khi/lúc,什么时候？Khi nào?
+时间,shíjiān,time; period; CL:段[duàn],thời gian,thời gian,我没有时间。Tôi không có thời gian.
+是,shì,is; are; am; yes; to be,thị,là,这是我。Đây là tôi.
+事情,shìqíng,affair; matter; thing; business; CL:件[jiàn];樁|桩[zhuāng],sự tình,sự việc,什么事情？Chuyện gì vậy?
+手表,shǒubiǎo,wrist watch; CL:塊|块[kuài];隻|只[zhī];個|个[gè],thủ biểu,đồng hồ đeo tay,我的手表。Đồng hồ của tôi.
+手机,shǒujī,cell phone; cellular phone; mobile phone; CL:部[bù],thủ cơ,điện thoại di động,我的手机没电了。Điện thoại tôi hết pin rồi.
+书,shū,book; letter; CL:本[běn];冊|册[cè];部[bù]; see also 書經|书经 Book of History,thư,sách,我买书。Tôi mua sách.
+水,shuǐ,water; river; liquid; beverage; additional charges or income; (of clothes) classifier for number of washes,thuỷ,nước,我喝水。Tôi uống nước.
+水果,shuǐguǒ,fruit; CL:個|个[gè],thuỷ quả,trái cây,我喜欢吃水果。Tôi thích ăn trái cây.
+睡觉,shuìjiào,to go to bed; to go to sleep,thuỵ giác,ngủ,我去睡觉。Tôi đi ngủ.
+说话,shuōhuà,to speak; to say; to talk; to gossip; to tell stories; talk; word,thuyết thoại,nói chuyện,不要说话。Đừng nói chuyện.
+四,sì,four; 4,tứ,bốn,四个人。4 người.
+送,sòng,to deliver; to carry; to give (as a present); to present (with); to see off; to send,tống,tặng/đưa,我送你回家。Tôi đưa bạn về.
+岁,suì,classifier for years (of age); year; year (of crop harvests),tuế,tuổi,我二十岁。Tôi 20 tuổi.
+所以,suǒyǐ,therefore; as a result; so,sở dĩ,cho nên,所以我不去了。Cho nên tôi không đi.
+他,tā,he or him; (used for either sex when the sex is unknown or unimportant); (used before sb's name for emphasis); (used as a meaningless mock object); other; another,tha,anh ấy,他是老师。Anh ấy là giáo viên.
+她,tā,she,tha,cô ấy,她很好。Cô ấy rất tốt.
 它,tā,it,tha,nó,它很可爱。Nó rất dễ thương.
-踢,tī,to kick,đích,đá,踢足球。Đá bóng.
-题,tí,question/problem,đề,đề bài,这道题很难。Bài này khó.
-跳舞,tiào wǔ,to dance, khiêu vũ,nhảy múa,她喜欢跳舞。Cô ấy thích nhảy.
-外,wài,outside,ngoại,bên ngoài,外面很冷。Bên ngoài rất lạnh.
-完,wán,to finish,hoàn,xong,我做完了。Tôi làm xong rồi.
-玩,wán,to play,ngoạn,chơi,我们一起玩吧。Chúng ta cùng chơi nhé.
-晚上,wǎn shàng,evening,vãn thượng,buổi tối,晚上见。Hẹn gặp tối nay.
-为,wèi,for,vi,vì/cho,为了你。Vì bạn.
+太,tài,highest; greatest; too (much); very; extremely,thái,quá,太热了！Nóng quá!
+踢足球,tīzúqiú,play soccer(football),thích túc cầu,đá bóng,我喜欢踢足球。Tôi thích đá bóng.
+题,tí,topic; problem for discussion; exam question; subject; to inscribe; to mention; surname Ti; CL:個|个[gè];道[dào],đề,đề bài,这道题很难。Bài này khó.
+天气,tiānqì,weather,thiên khí,thời tiết,今天天气很好。Hôm nay thời tiết đẹp.
+跳舞,tiàowǔ,to dance,khiêu vũ,nhảy múa,她喜欢跳舞。Cô ấy thích nhảy.
+听,tīng,to listen; to hear; to obey; a can (loanword from English tin); classifier for canned beverages,thính,nghe,我听音乐。Tôi nghe nhạc.
+同学,tóngxué,(fellow) classmate; CL:位[wèi];個|个[gè],đồng học,bạn học,我是你的同学。Tôi là bạn học của bạn.
+外,wài,outside; in addition; foreign; external,ngoại,bên ngoài,外面很冷。Bên ngoài rất lạnh.
+完,wán,to finish; to be over; whole; complete; entire,hoàn,xong,我做完了。Tôi làm xong rồi.
+玩,wán,toy; sth used for amusement; curio or antique (Taiwan pr. wàn); to play; to have fun; to trifle with; to keep sth for entertainment,ngoạn,chơi,我们一起玩吧。Chúng ta cùng chơi nhé.
+晚上,wǎnshang,in the evening; CL:個|个[gè],vãn thượng,buổi tối,晚上见。Hẹn gặp tối nay.
+喂,wèi,hello (interj.; esp. on telephone); hey; to feed (sb or some animal),vị,alo,喂，你好！Alo; xin chào!
+为什么,wèishénme,why?; for what reason?,vị thập ma,tại sao/vì sao,为什么不去？Tại sao không đi?
 问,wèn,to ask,vấn,hỏi,我问你一个问题。Tôi hỏi bạn 1 câu.
-问题,wèn tí,question,vấn đề,câu hỏi,这个问题很简单。Câu hỏi này rất dễ.
-西瓜,xī guā,watermelon,tây qua,dưa hấu,我爱吃西瓜。Tôi thích ăn dưa hấu.
-希望,xī wàng,to hope,hi vọng,hy vọng,我希望你快乐。Tôi hy vọng bạn vui vẻ.
-洗,xǐ,to wash,tẩy,rửa/giặt,洗衣服。Giặt đồ.
-向,xiàng,towards,hướng,hướng tới,向左走。Đi về bên trái.
-小时,xiǎo shí,hour,tiểu thời,giờ,一个小时。一 tiếng.
-笑,xiào,to laugh,tiếu,cười,他笑了。Anh ấy cười rồi.
-新,xīn,new,tân,mới,新手机。Điện thoại mới.
-姓,xìng,surname,tính,họ,你姓什么？Bạn họ gì?
-休息,xiū xī,to rest,hưu tức,nghỉ ngơi,我需要休息。Tôi cần nghỉ.
-雪,xuě,snow,tuyết,tuyết,下雪了。Trời có tuyết.
-颜色,yán sè,color,nhan sắc,màu sắc,你喜欢什么颜色？Bạn thích màu gì?
-眼睛,yǎn jīng,eyes,nhãn tinh,mắt,她的眼睛很大。Mắt cô ấy rất to.
-羊肉,yáng ròu,lamb/mutton,dương nhục,thịt cừu,我不吃羊肉。Tôi không ăn thịt cừu.
-药,yào,medicine,dược,thuốc,吃药。Uống thuốc.
-要,yào,to want,yếu,muốn,我要这个。Tôi muốn cái này.
-也,yě,also,dã,cũng,我也是。Tôi cũng vậy.
-已经,yǐ jīng,already,dĩ kinh,đã,我已经吃了。Tôi ăn rồi.
-一起,yì qǐ,together,nhất khởi,cùng nhau,我们一起去吧。Chúng ta cùng đi nhé.
-意思,yì si,meaning,ý tứ,ý nghĩa,什么意思？Nghĩa là gì?
-阴,yīn,cloudy,âm,trời âm u,今天是阴天。Hôm nay trời âm u.
-因为,yīn wèi,because,nhân vị,bởi vì,因为太远了。Bởi vì quá xa.
-游泳,yóu yǒng,to swim,du vịnh,bơi,我不会游泳。Tôi không biết bơi.
-右边,yòu biān,right side,hữu biên,bên phải,在右边。在 bên phải.
-鱼,yú,fish,ngư,cá,我爱吃鱼。Tôi thích ăn cá.
-元,yuán,yuan (CNY),nguyên,tệ,十元。10 tệ.
-远,yuǎn,far,viễn,xa,太远了！Xa quá!
-运动,yùn dòng,sports/v 운동,vận động,thể thao,我喜欢运动。Tôi thích thể thao.
-再,zài,again,tái,lại,再来一次。Làm lại lần nữa.
-早上,zǎo shàng,morning,tảo thượng,buổi sáng,早上好！Chào buổi sáng!
-张,zhāng,measure word for flat objects,trương,tờ/miếng,一张纸。Một tờ giấy.
-长,zhǎng,to grow/trưởng/chief, trưởng,phát triển/lớn,孩子长高了。Đứa trẻ lớn lên rồi.
-丈夫,zhàng fū,husband,trượng phu,chồng,他是我丈夫。Anh ấy là chồng tôi.
-找,zhǎo,to look for,tảo,tìm,我找你。Tôi tìm bạn.
-着,zhe,particle (ongoing state),trước,đang,门开着。Cửa đang mở.
-真,zhēn,really,chân,thật/sự,真的？Thật sao?
-正在,zhèng zài,in the middle of, chính tại,đang,我正在学习。Tôi đang học.
-知道,zhī dào,to know,tri đạo,biết,我知道了。Tôi biết rồi.
-准备,zhǔn bèi,to prepare,chuẩn bị,chuẩn bị,我准备好了。Tôi chuẩn bị xong rồi.
-自行车,zì xíng chē,bicycle,tự hành xa,xe đạp,我骑自行车。Tôi đi xe đạp.
-走,zǒu,to leave/walk,tẩu,đi/bỏ đi,我走了。Tôi đi đây.
-最,zuì,most,tối,nhất,最好。Tốt nhất.
-左边,zuǒ biān,left side,tả biên,bên trái,在左边。Ở bên trái.
+问题,wèntí,question; problem; issue; topic; CL:個|个[gè],vấn đề,câu hỏi,这个问题很简单。Câu hỏi này rất dễ.
+我,wǒ,I; me; my,ngã,tôi,我是学生。Tôi là học sinh.
+我们,wǒmen,we; us; ourselves; our,ngã môn,chúng tôi/chúng ta,我们是朋友。Chúng ta là bạn.
+五,wǔ,five; 5,ngũ,năm,五个人。5 người.
+西瓜,xīguā,watermelon; CL:條|条[tiáo],tây qua,dưa hấu,我爱吃西瓜。Tôi thích ăn dưa hấu.
+希望,xīwàng,to wish for; to desire; hope CL:個|个[gè],hi vọng,hy vọng,我希望你快乐。Tôi hy vọng bạn vui vẻ.
+洗,xǐ,to wash; to bathe,tẩy,rửa/giặt,洗衣服。Giặt đồ.
+喜欢,xǐhuan,to like; to be fond of,hỷ hoan,thích,我喜欢你。Tôi thích bạn.
+下,xià,down; downwards; below; lower; later; next (week etc); second (of two parts); to decline; to go down,hạ,xuống/dưới,坐下。Ngồi xuống.
+下午,xiàwǔ,afternoon; p.m.; CL:個|个[gè],hạ ngọ,buổi chiều,下午我工作。Chiều tôi làm việc.
+下雨,xiàyǔ,to rain; rainy,hạ vũ,mưa,今天下雨。Hôm nay trời mưa.
+先生,xiānsheng,teacher; Mister (Mr.); husband; doctor (topolect); CL:個|个[gè];位[wèi],tiên sinh,ông/ngài,王先生。Ông Vương.
+现在,xiànzài,now; at present; at the moment; modern; current; nowadays,hiện tại,bây giờ,我现在去。Bây giờ tôi đi.
+想,xiǎng,to think; to believe; to suppose; to wish; to want; to miss,tưởng,muốn/nghĩ,我想你。Tôi nhớ bạn.
+向,xiàng,direction; orientation; to face; to turn toward; to; towards; shortly before; formerly; to side with; to be partial to; all along (previously); surname Xiang,hướng,hướng tới,向左走。Đi về bên trái.
+小,xiǎo,small; tiny; few; young,tiểu,nhỏ,小孩子。Trẻ nhỏ.
+小姐,xiǎojie,young lady; miss; CL:個|个[gè];位[wèi],tiểu thư,cô,小姐，请问… Cô ơi cho hỏi...
+小时,xiǎoshí,hour; CL:個|个[gè],tiểu thời,giờ,一个小时。一 tiếng.
+笑,xiào,laugh; smile; CL:個|个[gè],tiếu,cười,他笑了。Anh ấy cười rồi.
+些,xiē,some; few; several; (a measure word),tá,một vài,一些东西。Một vài đồ.
+写,xiě,to write,tả,viết,我写字。Tôi viết chữ.
+谢谢,xièxie,to thank; thanks,tạ tạ,cảm ơn,谢谢你！Cảm ơn bạn!
+新,xīn,new; newly; meso- (chemistry),tân,mới,新手机。Điện thoại mới.
+星期,xīngqī,week; CL:個|个[gè],tinh kì,tuần,星期一：thứ hai.
+姓,xìng,family name; surname; name; CL:個|个[gè],tính,họ,你姓什么？Bạn họ gì?
+休息,xiūxi,rest; to rest,hưu tức,nghỉ ngơi,我需要休息。Tôi cần nghỉ.
+学生,xuésheng,student; school child,học sinh,học sinh,我是学生。Tôi là học sinh.
+学习,xuéxí,to learn; to study,học tập,học,我学习中文。Tôi học tiếng Trung.
+学校,xuéxiào,school; CL:所[suǒ],học hiệu,trường học,我去学校。Tôi đi học.
+雪,xuě,snow; snowfall; CL:場|场[cháng]; to have the appearance of snow; to wipe away; off or out; to clean,tuyết,tuyết,下雪了。Trời có tuyết.
+颜色,yánsè,color; CL:個|个[gè],nhan sắc,màu sắc,你喜欢什么颜色？Bạn thích màu gì?
+眼睛,yǎnjing,eye; CL:隻|只[zhī];雙|双[shuāng],nhãn tinh,mắt,她的眼睛很大。Mắt cô ấy rất to.
+羊肉,yángròu,mutton,dương nhục,thịt cừu,我不吃羊肉。Tôi không ăn thịt cừu.
+药,yào,medicine; drug; cure; CL:種|种[zhǒng];服[fù],dược,thuốc,吃药。Uống thuốc.
+要,yāo,demand; ask; request; coerce,yếu,muốn,我要这个。Tôi muốn cái này.
+也,yě,also; too; (in classical Chinese) final particle serving as copula,dã,cũng,我也是。Tôi cũng vậy.
+一,yī,one; 1; single; a (article); as soon as; entire; whole; all; throughout; one radical in Chinese characters (Kangxi radical 1),nhất,một,一个人。Một người.
+衣服,yīfu,clothes; CL:件[jiàn];套[tào],y phục,quần áo,我买衣服。Tôi mua quần áo.
+医生,yīshēng,doctor; CL:個|个[gè];位[wèi];名[míng],y sinh,bác sĩ,我是医生。Tôi là bác sĩ.
+医院,yīyuàn,hospital; CL:所[suǒ];家[jiā];座[zuò],y viện,bệnh viện,我去医院。Tôi đi bệnh viện.
+已经,yǐjīng,already,dĩ kinh,đã,我已经吃了。Tôi ăn rồi.
+椅子,yǐzi,chair; CL:把[bǎ];套[tào],ỷ tử,ghế,椅子在桌子前面。Ghế ở trước bàn.
+一起,yìqǐ,in the same place; together; with; altogether (in total),nhất khởi,cùng nhau,我们一起去吧。Chúng ta cùng đi nhé.
+意思,yìsi,idea; opinion; meaning; wish; desire; CL:個|个[gè],ý tứ,ý nghĩa,什么意思？Nghĩa là gì?
+阴,yīn,overcast (weather); cloudy; shady; Yin (the negative principle of Yin and Yang); negative (electric.); feminine; moon; implicit; hidden; genitalia,âm,trời âm u,今天是阴天。Hôm nay trời âm u.
+在,zài,(located) at; (to be) in; to exist; in the middle of doing sth; (indicating an action in progress),tại,ở,我在家。Tôi ở nhà.
+因为,yīnwèi,because; owing to; on account of,nhân vị,bởi vì,因为太远了。Bởi vì quá xa.
+游泳,yóuyǒng,swim,du vịnh,bơi,我不会游泳。Tôi không biết bơi.
+有,yǒu,to have; there is; there are; to exist; to be,hữu,có,我有钱。Tôi có tiền.
+右边,yòubian,right side; right; to the right,hữu biên,bên phải,在右边。在 bên phải.
+鱼,yú,fish; CL:條|条[tiáo];尾[wěi],ngư,cá,我爱吃鱼。Tôi thích ăn cá.
+元,yuán,Chinese monetary unit; dollar; primary; first; the Yuan or Mongol dynasty (12-13); surname Yuan,nguyên,tệ,十元。10 tệ.
+远,yuǎn,far; distant; remote,viễn,xa,太远了！Xa quá!
+月,yuè,moon; month; CL:個|个[gè];輪|轮[lún],nguyệt,tháng,这个月。Tháng này.
+运动,yùndòng,movement; campaign; CL: 場|场[chǎng]; sports,vận động,thể thao,我喜欢运动。Tôi thích thể thao.
+再,zài,again; once more; re-; second; another; then (after sth; and not until then),tái,lại,再来一次。Làm lại lần nữa.
+再见,zàijiàn,goodbye; see you again later,tái kiến,tạm biệt,再见！Tạm biệt!
+早上,zǎoshang,early morning; CL:個|个[gè]; Good morning!,tảo thượng,buổi sáng,早上好！Chào buổi sáng!
+怎么,zěnme,how?; what?; why?,chẩm ma,như thế nào,怎么做？Làm sao?
+怎么样,zěnmeyàng,how?; how about?; how was it?; how are things?,chẩm ma dạng,thế nào,你觉得怎么样？Bạn thấy thế nào?
+张,zhāng,to open up; to spread; sheet of paper; classifier for flat objects; sheet; classifier for votes,trương,tờ/miếng,一张纸。Một tờ giấy.
+丈夫,zhàngfu,husband; CL:個|个[gè],trượng phu,chồng,他是我丈夫。Anh ấy là chồng tôi.
+找,zhǎo,to try to find; to look for; to call on sb; to find; to seek; to return; to give change,tảo,tìm,我找你。Tôi tìm bạn.
+这,zhè,this; these; (commonly pr. zhèi before a classifier; esp. in Beijing),giá,này/đây,这是我的书。Đây là sách của tôi.
+着,zhe,particle attached after verb to indicate action in progress; like -ing ending,trước,đang,门开着。Cửa đang mở.
+真,zhēn,really; truly; indeed; real; true; genuine,chân,thật/sự,真的？Thật sao?
+正在,zhèngzài,in the process of (doing something or happening); while (doing),chính tại,đang,我正在学习。Tôi đang học.
+知道,zhīdao,to know; to be aware of,tri đạo,biết,我知道了。Tôi biết rồi.
+中国,zhōngguó,China; Middle Kingdom,trung Quốc,Trung Quốc,我在中国。Tôi ở Trung Quốc.
+中午,zhōngwǔ,noon; midday; CL:個|个[gè],trung ngọ,buổi trưa,中午吃饭。Ăn trưa.
+住,zhù,to live; to dwell; to stay; to reside; to stop,trụ,ở/sống,我住在河内。Tôi sống ở Hà Nội.
+准备,zhǔnbèi,preparation; prepare,chuẩn bị,chuẩn bị,我准备好了。Tôi chuẩn bị xong rồi.
+桌子,zhuōzi,table; desk; CL:張|张[zhāng];套[tào],trác tử,bàn,桌子上有书。Trên bàn có sách.
+字,zì,letter; symbol; character; word; CL:個|个[gè]; courtesy or style name traditionally given to males aged 2 in dynastic China,tự,chữ,写汉字。Viết chữ Hán.
+自行车,zìxíngchē,bicycle; bike; CL:輛|辆[liàng],tự hành xa,xe đạp,我骑自行车。Tôi đi xe đạp.
+走,zǒu,to walk; to go; to run; to move (of vehicle); to visit; to leave; to go away; to die (euph.); from; through; away (in compound verbs; such as 撤走); to change (shape; form; meaning),tẩu,đi/bỏ đi,我走了。Tôi đi đây.
+最,zuì,most; the most; -est,tối,nhất,最好。Tốt nhất.
+昨天,zuótiān,yesterday,tạc thiên,hôm qua,我昨天去北京。Hôm qua tôi đi Bắc Kinh.
+左边,zuǒbian,left; the left side; to the left of,tả biên,bên trái,在左边。Ở bên trái.
+坐,zuò,to sit; to take a seat; to take (a bus; airplane etc); to bear fruit; surname Zuo,tọa,ngồi,请坐。Mời ngồi.
+做,zuò,to do; to make; to produce; to write; to compose; to act as; to engage in; to hold (a party); to be; to become; to function (in some capacity); to serve as; to be used for; to form (a bond or relationship); to pretend; to feign; to act a part; to put on appearance,tố,làm,我做饭。Tôi nấu ăn.
