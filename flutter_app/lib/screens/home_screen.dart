@@ -65,6 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     '学习中文',
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           color: Theme.of(context).colorScheme.primary,
+                          height: 2.0, // Increased line height to prevent bottom cropping
                         ),
                   )
                       .animate()

@@ -36,27 +36,113 @@ class _ConfigScreenState extends State<ConfigScreen> {
             _buildSettingCard(
               title: 'HSK Level',
               subtitle: 'Select your HSK level (1-6)',
-              child: Wrap(
-                spacing: 10,
-                children: List.generate(6, (index) {
-                  final level = index + 1;
-                  return ChoiceChip(
-                    label: Text('HSK $level'),
-                    selected: _hskLevel == level,
-                    onSelected: (selected) {
-                      if (selected) {
-                        setState(() => _hskLevel = level);
-                      }
-                    },
-                    selectedColor: Theme.of(context).colorScheme.primary,
-                    labelStyle: TextStyle(
-                      color: _hskLevel == level 
-                          ? Theme.of(context).colorScheme.onPrimary
-                          : Theme.of(context).colorScheme.onSurface,
-                      fontWeight: FontWeight.bold,
+              child: Container(
+                height: 150,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: LinearGradient(
+                    colors: [
+                      Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                      Theme.of(context).colorScheme.secondary.withOpacity(0.1),
+                    ],
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // Left Arrow
+                    IconButton(
+                      onPressed: _hskLevel > 1
+                          ? () {
+                              setState(() => _hskLevel--);
+                            }
+                          : null,
+                      icon: const Icon(Icons.chevron_left),
+                      iconSize: 48,
+                      color: _hskLevel > 1
+                          ? Theme.of(context).colorScheme.primary
+                          : Theme.of(context).colorScheme.onSurfaceVariant.withOpacity(0.3),
+                    )
+                        .animate(key: ValueKey('left_$_hskLevel'))
+                        .scale(duration: 200.ms)
+                        .then()
+                        .shake(duration: 300.ms),
+                    
+                    const SizedBox(width: 20),
+                    
+                    // HSK Level Display
+                    AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 300),
+                      transitionBuilder: (Widget child, Animation<double> animation) {
+                        return ScaleTransition(
+                          scale: animation,
+                          child: RotationTransition(
+                            turns: Tween<double>(begin: 0.0, end: 1.0).animate(animation),
+                            child: child,
+                          ),
+                        );
+                      },
+                      child: Container(
+                        key: ValueKey<int>(_hskLevel),
+                        width: 140,
+                        height: 140,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Theme.of(context).colorScheme.primary,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Theme.of(context).colorScheme.primary.withOpacity(0.4),
+                              blurRadius: 20,
+                              spreadRadius: 5,
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'HSK',
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.w600,
+                                color: Theme.of(context).colorScheme.onPrimary,
+                              ),
+                            ),
+                            Text(
+                              '$_hskLevel',
+                              style: TextStyle(
+                                fontSize: 56,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).colorScheme.onPrimary,
+                                height: 1.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                  );
-                }),
+                    
+                    const SizedBox(width: 20),
+                    
+                    // Right Arrow
+                    IconButton(
+                      onPressed: _hskLevel < 6
+                          ? () {
+                              setState(() => _hskLevel++);
+                            }
+                          : null,
+                      icon: const Icon(Icons.chevron_right),
+                      iconSize: 48,
+                      color: _hskLevel < 6
+                          ? Theme.of(context).colorScheme.primary
+                          : Theme.of(context).colorScheme.onSurfaceVariant.withOpacity(0.3),
+                    )
+                        .animate(key: ValueKey('right_$_hskLevel'))
+                        .scale(duration: 200.ms)
+                        .then()
+                        .shake(duration: 300.ms),
+                  ],
+                ),
               ),
               index: 0,
             ),

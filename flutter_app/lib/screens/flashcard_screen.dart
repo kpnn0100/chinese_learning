@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'dart:math';
 import '../models/chinese_word.dart';
 import '../services/data_service.dart';
 import '../localization/app_strings.dart';
@@ -22,17 +23,27 @@ class FlashcardScreen extends StatefulWidget {
 
 class _FlashcardScreenState extends State<FlashcardScreen>
     with TickerProviderStateMixin {
-  int _currentIndex = 0;
   bool _showAnswer = false;
   final TextEditingController _answerController = TextEditingController();
   bool? _isCorrect;
   int _correctCount = 0;
+  int _totalAttempts = 0;
   late AnimationController _slideController;
   late Animation<Offset> _slideAnimation;
+  late List<ChineseWord> _wordPool;
+  ChineseWord? _currentWord;
+  final Random _random = Random();
 
   @override
   void initState() {
     super.initState();
+    
+    // Initialize word pool from all available words
+    _wordPool = List.from(widget.words);
+    
+    // Pick first random word
+    _pickRandomWord();
+    
     _slideController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 500),
@@ -46,6 +57,14 @@ class _FlashcardScreenState extends State<FlashcardScreen>
     ));
     _slideController.forward();
   }
+  
+  void _pickRandomWord() {
+    if (_wordPool.isEmpty) return;
+    
+    // Pick a random word from the pool using Random
+    final randomIndex = _random.nextInt(_wordPool.length);
+    _currentWord = _wordPool[randomIndex];
+  }
 
   @override
   void dispose() {
@@ -54,8 +73,6 @@ class _FlashcardScreenState extends State<FlashcardScreen>
     super.dispose();
   }
 
-  ChineseWord get _currentWord => widget.words[_currentIndex];
-
   void _checkAnswer() async {
     if (_answerController.text.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -63,25 +80,28 @@ class _FlashcardScreenState extends State<FlashcardScreen>
       );
       return;
     }
+    
+    if (_currentWord == null) return;
 
     final userAnswer = _answerController.text.trim().toLowerCase();
-    final correctAnswer = _currentWord.pinyin.toLowerCase();
+    final correctAnswer = _currentWord!.pinyin.toLowerCase();
     
     final isCorrect = _checkPinyin(userAnswer, correctAnswer);
     
     // Add to revision if wrong and in test mode
     if (!isCorrect && widget.isTest) {
-      await DataService.addToRevision(_currentWord.chinese);
+      await DataService.addToRevision(_currentWord!.chinese);
     }
     
     // Remove from revision if correct and in revision test mode
     if (isCorrect && widget.isRevision) {
-      await DataService.removeFromRevision(_currentWord.chinese);
+      await DataService.removeFromRevision(_currentWord!.chinese);
     }
     
     setState(() {
       _isCorrect = isCorrect;
       _showAnswer = true;
+      _totalAttempts++;
       if (_isCorrect!) _correctCount++;
     });
   }
@@ -112,19 +132,16 @@ class _FlashcardScreenState extends State<FlashcardScreen>
   }
 
   void _nextWord() {
-    if (_currentIndex < widget.words.length - 1) {
-      setState(() {
-        _currentIndex++;
-        _showAnswer = false;
-        _isCorrect = null;
-        _answerController.clear();
-      });
-      
-      _slideController.reset();
-      _slideController.forward();
-    } else {
-      _showResults();
-    }
+    // Infinite loop - always pick a new random word
+    setState(() {
+      _pickRandomWord();
+      _showAnswer = false;
+      _isCorrect = null;
+      _answerController.clear();
+    });
+    
+    _slideController.reset();
+    _slideController.forward();
   }
 
   void _showResults() {
@@ -203,14 +220,17 @@ class _FlashcardScreenState extends State<FlashcardScreen>
   }
 
   Widget _buildProgressIndicator() {
-    final progress = (_currentIndex + 1) / widget.words.length;
+    // Show score instead of progress for infinite learning
+    final scorePercentage = _totalAttempts > 0 
+        ? (_correctCount / _totalAttempts * 100).toStringAsFixed(0)
+        : '0';
     
     return Container(
-      margin: const EdgeInsets.all(20),
-      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
         ),
@@ -221,81 +241,50 @@ class _FlashcardScreenState extends State<FlashcardScreen>
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '${AppStrings.question} ${_currentIndex + 1}/${widget.words.length}',
+                'Score: $_correctCount/$_totalAttempts ($scorePercentage%)',
                 style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
                   color: Theme.of(context).colorScheme.primary,
-                ),
-              ),
-              Text(
-                '${AppStrings.score}: $_correctCount',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 12),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: LinearProgressIndicator(
-              value: progress,
-              minHeight: 8,
-              backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
-              valueColor: AlwaysStoppedAnimation<Color>(
-                progress > 0.7
-                    ? Colors.green
-                    : progress > 0.4
-                        ? Colors.orange
-                        : Theme.of(context).colorScheme.primary,
-              ),
-            ),
-          ).animate().scaleX(duration: 800.ms, curve: Curves.easeOut),
         ],
       ),
     );
   }
 
   Widget _buildQuestionView() {
+    if (_currentWord == null) return const SizedBox.shrink();
+    
     return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(20),
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
         child: Card(
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(24),
             side: BorderSide(
               color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
             ),
           ),
           child: Container(
-            padding: const EdgeInsets.all(40),
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 32),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(24),
               color: Theme.of(context).colorScheme.surfaceContainerHighest,
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  AppStrings.chinese,
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                  ),
-                )
-                    .animate()
-                    .fadeIn(duration: 500.ms)
-                    .slideY(begin: -0.2, end: 0),
-                const SizedBox(height: 20),
-                Text(
-                  _currentWord.chinese,
+                  _currentWord!.chinese,
                   style: const TextStyle(
-                    fontSize: 72,
+                    fontSize: 64,
                     fontWeight: FontWeight.bold,
                     color: Colors.blue,
+                    height: 1.2,
                   ),
                   textAlign: TextAlign.center,
                 )
@@ -303,24 +292,6 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                     .fadeIn(duration: 600.ms, delay: 200.ms)
                     .scale(begin: const Offset(0.5, 0.5), end: const Offset(1, 1))
                     .shimmer(duration: 2000.ms, delay: 800.ms),
-                const SizedBox(height: 30),
-                Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Text(
-                    AppStrings.typePinyinHint,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
-                )
-                    .animate()
-                    .fadeIn(duration: 500.ms, delay: 400.ms),
               ],
             ),
           ),
@@ -330,6 +301,8 @@ class _FlashcardScreenState extends State<FlashcardScreen>
   }
 
   Widget _buildAnswerView() {
+    if (_currentWord == null) return const SizedBox.shrink();
+    
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(20),
@@ -371,7 +344,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                   
                   // Chinese
                   Text(
-                    _currentWord.chinese,
+                    _currentWord!.chinese,
                     style: TextStyle(
                       fontSize: 48,
                       fontWeight: FontWeight.bold,
@@ -385,7 +358,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                   
                   // Pinyin
                   Text(
-                    _currentWord.pinyin,
+                    _currentWord!.pinyin,
                     style: const TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
@@ -399,7 +372,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                   
                   // English
                   Text(
-                    _currentWord.meaningEnglish,
+                    _currentWord!.meaningEnglish,
                     style: const TextStyle(
                       fontSize: 22,
                       color: Colors.green,
@@ -411,10 +384,10 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                       .fadeIn(duration: 400.ms, delay: 400.ms)
                       .slideY(begin: 0.2, end: 0),
                   
-                  if (_currentWord.hanViet.isNotEmpty) ...[
+                  if (_currentWord!.hanViet.isNotEmpty) ...[
                     const SizedBox(height: 12),
                     Text(
-                      '${AppStrings.hanViet} ${_currentWord.hanViet}',
+                      '${AppStrings.hanViet} ${_currentWord!.hanViet}',
                       style: const TextStyle(
                         fontSize: 20,
                         color: Colors.purple,
@@ -426,10 +399,10 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                         .slideY(begin: 0.2, end: 0),
                   ],
                   
-                  if (_currentWord.nghiaTiengViet.isNotEmpty) ...[
+                  if (_currentWord!.nghiaTiengViet.isNotEmpty) ...[
                     const SizedBox(height: 12),
                     Text(
-                      _currentWord.nghiaTiengViet,
+                      _currentWord!.nghiaTiengViet,
                       style: const TextStyle(
                         fontSize: 20,
                         color: Colors.orange,
@@ -468,9 +441,9 @@ class _FlashcardScreenState extends State<FlashcardScreen>
             TextField(
               controller: _answerController,
               decoration: InputDecoration(
-                hintText: AppStrings.typePinyinHint,
+                hintText: 'pinyin (1234 for tones)',
                 hintStyle: TextStyle(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant.withOpacity(0.5),
                 ),
                 filled: true,
                 fillColor: Theme.of(context).colorScheme.surfaceContainer,
@@ -543,9 +516,9 @@ class _FlashcardScreenState extends State<FlashcardScreen>
                 ),
                 elevation: 0,
               ),
-              child: Text(
-                _currentIndex < widget.words.length - 1 ? AppStrings.next : AppStrings.finish,
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              child: const Text(
+                AppStrings.next,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             )
                 .animate()
