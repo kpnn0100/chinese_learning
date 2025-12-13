@@ -28,21 +28,34 @@ class _FlashcardScreenState extends State<FlashcardScreen>
   bool? _isCorrect;
   int _correctCount = 0;
   int _totalAttempts = 0;
+  int _currentIndex = 0;
   late AnimationController _slideController;
   late Animation<Offset> _slideAnimation;
-  late List<ChineseWord> _wordPool;
+  late List<ChineseWord> _testWords;
+  late List<ChineseWord> _wordPool; // For infinite learning mode
   ChineseWord? _currentWord;
+  bool _showChinese = true; // Randomly show Chinese or meaning
   final Random _random = Random();
 
   @override
   void initState() {
     super.initState();
     
-    // Initialize word pool from all available words
-    _wordPool = List.from(widget.words);
-    
-    // Pick first random word
-    _pickRandomWord();
+    if (widget.isTest) {
+      // Test mode: Fixed number of words
+      final shuffled = List<ChineseWord>.from(widget.words)..shuffle(_random);
+      final wordsPerTest = DataService.wordsPerPatch * 2; // 2 patches worth
+      _testWords = shuffled.take(wordsPerTest.clamp(1, widget.words.length)).toList();
+      
+      if (_testWords.isNotEmpty) {
+        _currentWord = _testWords[_currentIndex];
+      }
+    } else {
+      // Learning mode: Infinite random words from patches
+      _wordPool = List.from(widget.words);
+      _testWords = []; // Not used in learning mode
+      _pickRandomWord();
+    }
     
     _slideController = AnimationController(
       vsync: this,
@@ -61,9 +74,12 @@ class _FlashcardScreenState extends State<FlashcardScreen>
   void _pickRandomWord() {
     if (_wordPool.isEmpty) return;
     
-    // Pick a random word from the pool using Random
+    // Pick random word from pool
     final randomIndex = _random.nextInt(_wordPool.length);
     _currentWord = _wordPool[randomIndex];
+    
+    // Randomly decide to show Chinese or meaning
+    _showChinese = _random.nextBool();
   }
 
   @override
@@ -132,20 +148,38 @@ class _FlashcardScreenState extends State<FlashcardScreen>
   }
 
   void _nextWord() {
-    // Infinite loop - always pick a new random word
-    setState(() {
-      _pickRandomWord();
-      _showAnswer = false;
-      _isCorrect = null;
-      _answerController.clear();
-    });
+    if (widget.isTest) {
+      // Test mode: Move to next word in fixed list
+      _currentIndex++;
+      
+      // Check if we've completed all words
+      if (_currentIndex >= _testWords.length) {
+        _showResults();
+        return;
+      }
+      
+      setState(() {
+        _currentWord = _testWords[_currentIndex];
+        _showAnswer = false;
+        _isCorrect = null;
+        _answerController.clear();
+      });
+    } else {
+      // Learning mode: Pick random word infinitely
+      setState(() {
+        _pickRandomWord();
+        _showAnswer = false;
+        _isCorrect = null;
+        _answerController.clear();
+      });
+    }
     
     _slideController.reset();
     _slideController.forward();
   }
 
   void _showResults() {
-    final score = (_correctCount / widget.words.length * 100).toStringAsFixed(1);
+    final score = (_correctCount / _testWords.length * 100).toStringAsFixed(1);
     
     showDialog(
       context: context,
@@ -163,7 +197,7 @@ class _FlashcardScreenState extends State<FlashcardScreen>
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              '${AppStrings.score}: $_correctCount/${widget.words.length}',
+              '${AppStrings.score}: $_correctCount/${_testWords.length}',
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             Text(
@@ -220,7 +254,6 @@ class _FlashcardScreenState extends State<FlashcardScreen>
   }
 
   Widget _buildProgressIndicator() {
-    // Show score instead of progress for infinite learning
     final scorePercentage = _totalAttempts > 0 
         ? (_correctCount / _totalAttempts * 100).toStringAsFixed(0)
         : '0';
@@ -240,6 +273,15 @@ class _FlashcardScreenState extends State<FlashcardScreen>
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              if (widget.isTest)
+                Text(
+                  'Progress: ${_currentIndex + 1}/${_testWords.length}',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
               Text(
                 'Score: $_correctCount/$_totalAttempts ($scorePercentage%)',
                 style: TextStyle(
@@ -250,6 +292,16 @@ class _FlashcardScreenState extends State<FlashcardScreen>
               ),
             ],
           ),
+          if (widget.isTest) ...[
+            const SizedBox(height: 8),
+            LinearProgressIndicator(
+              value: _testWords.isNotEmpty 
+                  ? (_currentIndex + 1) / _testWords.length 
+                  : 0.0,
+              backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+              borderRadius: BorderRadius.circular(4),
+            ),
+          ],
         ],
       ),
     );
@@ -257,6 +309,14 @@ class _FlashcardScreenState extends State<FlashcardScreen>
 
   Widget _buildQuestionView() {
     if (_currentWord == null) return const SizedBox.shrink();
+    
+    // Determine what to display: Chinese or Meaning
+    final displayText = (widget.isTest || _showChinese) 
+        ? _currentWord!.chinese 
+        : _currentWord!.meaningEnglish;
+    final displayLabel = (widget.isTest || _showChinese) 
+        ? 'Chinese' 
+        : 'Meaning';
     
     return Center(
       child: SingleChildScrollView(
@@ -278,10 +338,22 @@ class _FlashcardScreenState extends State<FlashcardScreen>
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                if (!widget.isTest && !_showChinese)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: Text(
+                      displayLabel,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: Theme.of(context).colorScheme.primary.withOpacity(0.7),
+                      ),
+                    ),
+                  ),
                 Text(
-                  _currentWord!.chinese,
-                  style: const TextStyle(
-                    fontSize: 64,
+                  displayText,
+                  style: TextStyle(
+                    fontSize: _showChinese ? 64 : 32,
                     fontWeight: FontWeight.bold,
                     color: Colors.blue,
                     height: 1.2,
