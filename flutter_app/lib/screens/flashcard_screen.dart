@@ -42,10 +42,9 @@ class _FlashcardScreenState extends State<FlashcardScreen>
     super.initState();
     
     if (widget.isTest) {
-      // Test mode: Fixed number of words
+      // Test mode: Use all provided words in random order
       final shuffled = List<ChineseWord>.from(widget.words)..shuffle(_random);
-      final wordsPerTest = DataService.wordsPerPatch * 2; // 2 patches worth
-      _testWords = shuffled.take(wordsPerTest.clamp(1, widget.words.length)).toList();
+      _testWords = shuffled;
       
       if (_testWords.isNotEmpty) {
         _currentWord = _testWords[_currentIndex];
@@ -137,9 +136,10 @@ class _FlashcardScreenState extends State<FlashcardScreen>
         .replaceAll('ǒ', 'o3').replaceAll('ò', 'o4')
         .replaceAll('ū', 'u1').replaceAll('ú', 'u2')
         .replaceAll('ǔ', 'u3').replaceAll('ù', 'u4')
-        .replaceAll('ü', 'v');
-    
-    final userNormalized = user
+        .replaceAll('ü', 'v')
+        .replaceAll('ǖ', 'v1').replaceAll('ǘ', 'v2').replaceAll('ǚ', 'v3').replaceAll('ǜ', 'v4');
+          
+          final userNormalized = user
         .replaceAll(' ', '')
         .replaceAll(',', '')
         .replaceAll('ü', 'v');
